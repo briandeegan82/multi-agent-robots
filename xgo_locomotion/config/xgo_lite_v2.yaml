@@ -1,0 +1,44 @@
+# XGO Lite v2 <-> Lite3-Walk-Flat policy mapping.
+# Joint order and names follow the policy (ONNX metadata `joint_names`); arm joints are held
+# at their default and not commanded. Registers index the 15-byte 0x50 motor block
+# (xgolib MOTOR_ID order 11,12,13,21,...,43,51,52,53; per leg: lower=shank, mid=thigh,
+# upper=hip; legs 1=FL 2=FR 3=RR 4=RL).
+# sign/offset_deg are PLACEHOLDERS until measured with `xgo-calibrate` on the robot:
+#   motor_deg = sign * deg(q_sim) + offset_deg
+calibrated: false
+
+joints:
+  - {name: FL_shank_joint, register: 0, role: lower, sign: 1.0, offset_deg: 0.0}
+  - {name: FL_thigh_joint, register: 1, role: mid, sign: 1.0, offset_deg: 0.0}
+  - {name: FL_hip_joint, register: 2, role: upper, sign: 1.0, offset_deg: 0.0}
+  - {name: FR_shank_joint, register: 3, role: lower, sign: 1.0, offset_deg: 0.0}
+  - {name: FR_thigh_joint, register: 4, role: mid, sign: 1.0, offset_deg: 0.0}
+  - {name: FR_hip_joint, register: 5, role: upper, sign: 1.0, offset_deg: 0.0}
+  - {name: RR_shank_joint, register: 6, role: lower, sign: 1.0, offset_deg: 0.0}
+  - {name: RR_thigh_joint, register: 7, role: mid, sign: 1.0, offset_deg: 0.0}
+  - {name: RR_hip_joint, register: 8, role: upper, sign: 1.0, offset_deg: 0.0}
+  - {name: RL_shank_joint, register: 9, role: lower, sign: 1.0, offset_deg: 0.0}
+  - {name: RL_thigh_joint, register: 10, role: mid, sign: 1.0, offset_deg: 0.0}
+  - {name: RL_hip_joint, register: 11, role: upper, sign: 1.0, offset_deg: 0.0}
+
+imu:
+  source: imu65
+  gyro_axes: [0, 1, 2]
+  gyro_sign: [1.0, 1.0, 1.0]
+  roll_sign: 1.0
+  pitch_sign: 1.0
+
+safety:
+  tilt_limit_deg: 35.0
+  joint_margin_deg: 2.0
+  max_step_rad: 0.15
+  max_read_failures: 3
+  on_fault: reset
+
+control:
+  control_hz: 50.0      # must match training (dt 0.004 x decimation 5)
+  phase_period: 0.4     # Lite3 env_cfgs phase period
+  stand_threshold: 0.1  # |command| below this zeroes the phase obs
+  stand_up_s: 2.0
+  joint_vel_ema: 1.0    # 1.0 = raw finite difference
+  baud: 115200
