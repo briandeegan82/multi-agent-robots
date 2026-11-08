@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "xgo_rl"
+version = "0.1.0"
+description = "Learned locomotion for the XGO Lite v2 on a Rock Pi 4 (luwu_mjlab policy runtime)"
+requires-python = ">=3.9"
+dependencies = ["numpy", "pyyaml", "pyserial", "onnxruntime"]
+
+[project.optional-dependencies]
+ble = ["bleak"]
+sim = ["mujoco==3.6.0"]
+dev = ["pytest", "ruff", "onnx"]
+
+[project.scripts]
+xgo-run = "xgo_rl.cli:main"
+xgo-bench = "xgo_rl.tools.bench:main"
+xgo-calibrate = "xgo_rl.tools.calibrate:main"
+xgo-sim-serve = "xgo_rl.pty_sim:main"
+
+[tool.setuptools]
+packages = ["xgo_rl", "xgo_rl.tools"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

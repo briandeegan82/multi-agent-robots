@@ -1,0 +1,9 @@
+# Pins from luwu_mjlab setup.py (commit pinned in setup_train_env.sh).
+mjlab==1.2.0
+mujoco==3.6.0
+mujoco-warp==3.6.0
+warp-lang==1.12.1
+scipy>=1.17.0
+onnx
+onnxruntime
+tensorboard

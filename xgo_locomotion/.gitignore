@@ -1,0 +1,7 @@
+train/luwu_mjlab/
+train/logs/
+*.npz
+policies/*.onnx
+*.egg-info/
+xgo_controller/target/
+__pycache__/
