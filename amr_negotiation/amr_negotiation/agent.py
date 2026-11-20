@@ -42,6 +42,8 @@ class AgentParams:
     commit: bool = True  # wait for the peer's decision (or neg_timeout) before acting; False: act on our own at once
     state_guard: bool = True  # STATE messages expose a peer yielding into our bay / to us, and we proceed instead
     bay_check: bool = True  # lidar-occupied bays count as taken, and a yielder that senses one in its bay proceeds
+    goal_wait: bool = True  # a robot with a goal_refuge waits in another bay while the goal's occupant leaves,
+    # and ignores yielding peers whose refuge lies at or beyond its goal
     state_timeout: float = 1.0
     stop_margin: float = 0.10
     lateral_margin: float = 0.03
@@ -421,7 +423,7 @@ class Agent:
             self.begin_yield(t, ref, peer, rule="make_room")
             return self.brake()
         yp = self.yielding_peer(t, x) if self.comms else None
-        if yp is not None and self.goal_ref is not None:
+        if yp is not None and self.goal_ref is not None and self.p.goal_wait:
             yr = refuge_by_id(self.sc, yp[1].get("refuge"))
             if yr is None or yr.id == self.goal_ref.id or self.dir * (yr.x - self.goal_ref.x) > 0:
                 yp = None  # we turn off into our destination before reaching the yielder's refuge
@@ -450,7 +452,7 @@ class Agent:
         g = self.goal_ref
         if g is not None:
             if self.refuge_taken(t, g, perc):
-                occ = self.goal_occupant(t, g, x)
+                occ = self.goal_occupant(t, g, x) if self.p.goal_wait else None
                 if occ is not None:
                     # the occupant will leave towards us: wait in another bay so it can pass
                     w_ref = self.goal_wait_refuge(t, x, g, perc)

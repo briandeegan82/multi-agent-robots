@@ -1,8 +1,10 @@
-# Alternative convention: geometry before seniority (whoever is closest to a refuge yields).
+# Alternative convention: geometry before seniority (whoever is closest to a refuge yields),
+# after the urgency and payload checks of the default rulebook.
 rules:
   - rule: no_refuge
   - rule: urgency
     threshold: 0.5
+  - rule: loaded
   - rule: closest_refuge
     tie: 0.1
   - rule: first_in_corridor

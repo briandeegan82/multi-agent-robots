@@ -1,11 +1,12 @@
 """Wrong maps: a bay that is on every robot's map but physically blocked (corridor_two_bays).
 
-Run from amr_negotiation/: python studies/wrong_map.py"""
+Run from amr_negotiation/: python studies/wrong_map.py  (per-episode rows: results_raw/wrong_map.csv.gz)"""
 import collections
 import multiprocessing as mp
 from pathlib import Path
 
 import numpy as np
+import pandas as pd
 
 from amr_negotiation import sim2d
 from amr_negotiation import sweep as SW
@@ -30,6 +31,9 @@ if __name__ == "__main__":
     jobs = [(b, p, lo, s) for b in BLOCK for p in pols for lo in (0.0, 0.5) for s in range(10)]
     with mp.Pool(8) as pool:
         res = pool.map(run, jobs)
+    pd.DataFrame([{'blocked': a[0], 'policy': a[1], 'loss': a[2], 'seed': a[3], 'success': su, 'deadlock': d,
+                   'collision': c, 'total_delay': td, 'n_decisions': nd} for a, su, d, c, td, nd in res]
+                 ).to_csv(ROOT / 'studies/results_raw/wrong_map.csv.gz', index=False)
     base = {(a[1], a[2], a[3]): td for a, _, _, _, td, _ in res if a[0] == "none"}
     agg = collections.defaultdict(list)
     for a, s, d, c, td, nd in res:
