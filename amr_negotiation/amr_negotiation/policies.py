@@ -251,13 +251,25 @@ def decide_group_bid(snaps, sc, objective: str = "total_delay") -> Decision:
 
 # ---------------------------------------------------------------- Clarke-pivot mechanism
 
-def decide_clarke(snaps, sc, report_scale: dict | None = None) -> Decision:
-    """Clarke-pivot choice of yielder. `report_scale` multiplies a robot's reported costs (misreport studies)."""
+def decide_clarke(snaps, sc, report_scale: dict | None = None, report_urgency: dict | None = None) -> Decision:
+    """Clarke-pivot choice of yielder (misreport studies below).
+
+    `report_scale[i]` multiplies robot i's reported costs: a number scales both outcomes, a dict {outcome: k}
+    scales each outcome independently. `report_urgency[i]` replaces robot i's private urgency in the reports
+    (the reports are recomputed from the altered snapshot; `types` keeps the true costs)."""
+    from dataclasses import replace
+
     from .mechanism import clarke, types
 
     a, b = _pair(snaps)
     true = types(a, b, sc)
-    rep = {o: {i: c * (report_scale or {}).get(i, 1.0) for i, c in v.items()} for o, v in true.items()}
+    ru = report_urgency or {}
+    base = types(*(replace(s, urgency=ru[s.id]) if s.id in ru else s for s in (a, b)), sc) if ru else true
+
+    def k(i, o):
+        v = (report_scale or {}).get(i, 1.0)
+        return v.get(o, 1.0) if isinstance(v, dict) else v
+    rep = {o: {i: c * k(i, o) for i, c in v.items()} for o, v in base.items()}
     y, pay = clarke(rep)
     detail = {"types": true, "reports": rep, "payments": pay}
     if y is None:
@@ -280,7 +292,7 @@ def decide(policy: dict, snaps: list[Snapshot], sc: Scenario) -> Decision:
     if name == "learned":
         return decide_learned(snaps, sc, policy.get("table"))
     if name == "clarke":
-        return decide_clarke(snaps, sc, policy.get("report_scale"))
+        return decide_clarke(snaps, sc, policy.get("report_scale"), policy.get("report_urgency"))
     if name == "group_bid":
         return decide_group_bid(snaps, sc, policy.get("objective", "total_delay"))
     if name == "llm":
