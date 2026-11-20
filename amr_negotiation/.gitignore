@@ -18,3 +18,9 @@ paper2/*.fls
 paper2/*.fdb_latexmk
 paper2/*.synctex.gz
 studies/results_raw/llm/*/cache.jsonl
+paper_tase/*.aux
+paper_tase/*.log
+paper_tase/*.out
+paper_tase/*.fls
+paper_tase/*.fdb_latexmk
+paper_tase/*.synctex.gz

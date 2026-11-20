@@ -1,0 +1,87 @@
+\documentclass[lettersize,journal]{IEEEtran}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{array}
+\usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
+\usepackage{textcomp}
+\usepackage{stfloats}
+\PassOptionsToPackage{hyphens}{url}
+\usepackage{url}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{booktabs,multirow}
+\usepackage[hidelinks]{hyperref}
+\hyphenation{op-tical net-works semi-conduc-tor IEEE-Xplore}
+
+\newcommand{\cb}{\texttt{cost\_bid}}
+\newcommand{\gb}{\texttt{group\_bid}}
+
+\makeatletter
+\g@addto@macro\normalsize{%
+  \setlength{\abovedisplayskip}{6pt plus 0pt minus 1pt}%
+  \setlength{\belowdisplayskip}{6pt plus 0pt minus 1pt}%
+  \setlength{\abovedisplayshortskip}{3pt plus 0pt minus 1pt}%
+  \setlength{\belowdisplayshortskip}{4pt plus 0pt minus 1pt}%
+}
+\makeatother
+\AtBeginDocument{\normalsize\raggedbottom}
+
+\begin{document}
+\bstctlcite{IEEEexample:BSTcontrol}
+
+\title{Who Backs Up? Benchmarking Decentralized Multi-Robot Yield Negotiation in Narrow Corridors}
+
+
+\author{Roshan George, Martin Glavin, Edward Jones, and Brian Deegan%
+\thanks{All authors are with the Connaught Automotive Research (CAR) group and the Ryan Institute, University of Galway, Ireland (e-mail: roshan.george@universityofgalway.ie).}}
+
+\markboth{IEEE Transactions on Automation Science and Engineering}%
+{George \MakeLowercase{\textit{et al.}}: Benchmarking Information, Incentives, and Sim-to-3D Robustness in Narrow-Corridor Robot Negotiation}
+
+\maketitle
+
+\begin{abstract}
+Two autonomous mobile robots meeting head-on in a narrow corridor must decide who yields and where, coupling a discrete decision with continuous motion under asymmetric kinematics, lossy wireless, and imperfect perception. We benchmark nine decentralized coordination policies (reactive backoff, corridor reservation, fixed priority, two rulebooks, kinematic cost bidding and its convoy variant, a Clarke-pivot auction, and a tabular outcome classifier) against the better of the two forced-yielder outcomes, on one frozen code version in 2D simulation and Gazebo. Without communication, this reactive design deadlocks in $6.2\%$ of single-bay encounters and inflates delay $3.6\times$; every negotiating policy completes all encounters. Cost bidding matches the reference in symmetric corridors and cuts heterogeneous urgency-weighted excess delay to $0.04$\,s (fixed priority: $27.1$\,s); its edge over rulebooks vanishes at bid error $\sigma\approx0.5$ in a single bay and $\sigma\approx0.45$ in heterogeneous fleets. A closest-refuge rulebook is competitive only with a single bay. Delay credits tuned on held-out sequences reach Jain fairness $0.99$ at $3.8\%$ extra delay. Snapshot broadcasts kept zero collisions up to $99\%$ independent and bursty packet loss, although robots then often fall back to reactive yielding, and $97.0\%$ of negotiating Gazebo runs with ground-truth localization reproduce the 2D yield choice.
+\end{abstract}
+
+\def\abstractname{Note to Practitioners}
+\begin{abstract}
+Autonomous mobile robots in narrow warehouse aisles, hospital hallways, and single-lane factory corridors often meet head-on where neither can pass. Local obstacle avoidance causes standoffs, while centralized fleet managers fail in radio dead zones and multi-vendor sites. This work presents a decentralized negotiation framework that lets two robots agree locally on which one reverses into a nearby pull-in bay, improving throughput and safety without a central server. Benchmarks across 2D simulation and 3D physics yield practical deployment guidelines. In a single-bay corridor, a simple closest-refuge rule matches travel-time bidding once speed estimates are noisy, but it is layout-sensitive and trails even fixed ID priority when two bays are available; with accurate delay estimates, urgency-weighted bidding saves significant time for mixed-priority fleets. Broadcasting robot status kept collisions at zero even under 99\% packet loss without confirmation handshakes, and attaching known bay locations to each message removed incomplete-map penalties (tested up to 50\% packet loss). Cumulative delay credits balance waiting across shifts, and auction payments discourage robots from exaggerating costs. Current results assume exact localization, nominal motion, and simplified junctions; future work will test physical fleets under localization drift, wheel slip, and convoy delays. Beyond logistics and healthcare, the approach suits mining haulers, single-track shuttles, and canal craft.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Mobile Robots, Robotic Negotiation, Cooperative Robots, Multi-Agent Systems, Game Theory.
+\end{IEEEkeywords}
+
+\input{Sections/1_Introduction.tex}
+\input{Sections/2_Related_Works.tex}
+\input{Sections/3_Problem_Formulation.tex}
+\input{Sections/4_Experimental_Design.tex}
+\input{Sections/5_Results.tex}
+\input{Sections/6_Discussion_and_Future_Works.tex}
+\input{Sections/7_Conclusion.tex}
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+% \begin{IEEEbiographynophoto}{Roshan George}
+% Biography text here.
+% \end{IEEEbiographynophoto}
+
+% \begin{IEEEbiographynophoto}{Martin Glavin}
+% Biography text here.
+% \end{IEEEbiographynophoto}
+
+% \begin{IEEEbiographynophoto}{Edward Jones}
+% Biography text here.
+% \end{IEEEbiographynophoto}
+
+% \begin{IEEEbiographynophoto}{Brian Deegan}
+% Biography text here.
+% \end{IEEEbiographynophoto}
+
+% \vfill
+
+\end{document}
