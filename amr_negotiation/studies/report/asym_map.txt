@@ -1,86 +1,169 @@
-knowledge policy loss | succ dead coll | mean delay | mean extra vs full | learned mismatch
-('full', 'fixed_priority', 0.0, 'own') | 10 0 0 | 22.0 | +0.0 | 0 0
-('full', 'fixed_priority', 0.0, 'share') | 10 0 0 | 22.0 | +0.0 | 0 0
-('full', 'fixed_priority', 0.5, 'own') | 10 0 0 | 23.5 | +0.0 | 0 0
-('full', 'fixed_priority', 0.5, 'share') | 10 0 0 | 23.5 | +0.0 | 0 0
-('full', 'rules_default', 0.0, 'own') | 10 0 0 | 22.0 | +0.0 | 0 0
-('full', 'rules_default', 0.0, 'share') | 10 0 0 | 22.0 | +0.0 | 0 0
-('full', 'rules_default', 0.5, 'own') | 10 0 0 | 23.5 | +0.0 | 0 0
-('full', 'rules_default', 0.5, 'share') | 10 0 0 | 23.5 | +0.0 | 0 0
-('full', 'cost_bid', 0.0, 'own') | 10 0 0 | 22.0 | +0.0 | 0 0
-('full', 'cost_bid', 0.0, 'share') | 10 0 0 | 22.0 | +0.0 | 0 0
-('full', 'cost_bid', 0.5, 'own') | 10 0 0 | 23.5 | +0.0 | 0 0
-('full', 'cost_bid', 0.5, 'share') | 10 0 0 | 23.5 | +0.0 | 0 0
-('A:bay0', 'fixed_priority', 0.0, 'own') | 10 0 0 | 51.6 | +29.6 | 0 20
-('A:bay0', 'fixed_priority', 0.0, 'share') | 10 0 0 | 22.0 | +0.0 | 10 0
-('A:bay0', 'fixed_priority', 0.5, 'own') | 10 0 0 | 52.9 | +29.3 | 0 22
-('A:bay0', 'fixed_priority', 0.5, 'share') | 10 0 0 | 23.5 | +0.0 | 10 0
-('A:bay0', 'rules_default', 0.0, 'own') | 10 0 0 | 51.6 | +29.6 | 0 20
-('A:bay0', 'rules_default', 0.0, 'share') | 10 0 0 | 22.0 | +0.0 | 10 0
-('A:bay0', 'rules_default', 0.5, 'own') | 10 0 0 | 52.9 | +29.3 | 0 22
-('A:bay0', 'rules_default', 0.5, 'share') | 10 0 0 | 23.5 | +0.0 | 10 0
-('A:bay0', 'cost_bid', 0.0, 'own') | 10 0 0 | 31.1 | +9.1 | 0 20
-('A:bay0', 'cost_bid', 0.0, 'share') | 10 0 0 | 22.0 | +0.0 | 10 0
-('A:bay0', 'cost_bid', 0.5, 'own') | 10 0 0 | 32.8 | +9.3 | 0 22
-('A:bay0', 'cost_bid', 0.5, 'share') | 10 0 0 | 23.5 | +0.0 | 10 0
-('A:bay1', 'fixed_priority', 0.0, 'own') | 10 0 0 | 22.0 | +0.0 | 0 0
-('A:bay1', 'fixed_priority', 0.0, 'share') | 10 0 0 | 22.0 | +0.0 | 10 0
-('A:bay1', 'fixed_priority', 0.5, 'own') | 10 0 0 | 23.5 | +0.0 | 0 0
-('A:bay1', 'fixed_priority', 0.5, 'share') | 10 0 0 | 23.5 | +0.0 | 10 0
-('A:bay1', 'rules_default', 0.0, 'own') | 10 0 0 | 22.0 | +0.0 | 0 0
-('A:bay1', 'rules_default', 0.0, 'share') | 10 0 0 | 22.0 | +0.0 | 10 0
-('A:bay1', 'rules_default', 0.5, 'own') | 10 0 0 | 23.5 | +0.0 | 0 0
-('A:bay1', 'rules_default', 0.5, 'share') | 10 0 0 | 23.5 | +0.0 | 10 0
-('A:bay1', 'cost_bid', 0.0, 'own') | 10 0 0 | 22.0 | +0.0 | 0 0
-('A:bay1', 'cost_bid', 0.0, 'share') | 10 0 0 | 22.0 | +0.0 | 10 0
-('A:bay1', 'cost_bid', 0.5, 'own') | 10 0 0 | 23.5 | +0.0 | 0 0
-('A:bay1', 'cost_bid', 0.5, 'share') | 10 0 0 | 23.5 | +0.0 | 10 0
-('B:bay0', 'fixed_priority', 0.0, 'own') | 10 0 0 | 22.0 | +0.0 | 10 20
-('B:bay0', 'fixed_priority', 0.0, 'share') | 10 0 0 | 22.0 | +0.0 | 10 0
-('B:bay0', 'fixed_priority', 0.5, 'own') | 10 0 0 | 23.5 | +0.0 | 10 22
-('B:bay0', 'fixed_priority', 0.5, 'share') | 10 0 0 | 23.5 | +0.0 | 10 0
-('B:bay0', 'rules_default', 0.0, 'own') | 10 0 0 | 22.0 | +0.0 | 10 20
-('B:bay0', 'rules_default', 0.0, 'share') | 10 0 0 | 22.0 | +0.0 | 10 0
-('B:bay0', 'rules_default', 0.5, 'own') | 10 0 0 | 23.5 | +0.0 | 10 22
-('B:bay0', 'rules_default', 0.5, 'share') | 10 0 0 | 23.5 | +0.0 | 10 0
-('B:bay0', 'cost_bid', 0.0, 'own') | 10 0 0 | 22.0 | +0.0 | 10 20
-('B:bay0', 'cost_bid', 0.0, 'share') | 10 0 0 | 22.0 | +0.0 | 10 0
-('B:bay0', 'cost_bid', 0.5, 'own') | 10 0 0 | 23.5 | +0.0 | 10 22
-('B:bay0', 'cost_bid', 0.5, 'share') | 10 0 0 | 23.5 | +0.0 | 10 0
-('A:bay0|B:bay1', 'fixed_priority', 0.0, 'own') | 10 0 0 | 51.6 | +29.6 | 1 20
-('A:bay0|B:bay1', 'fixed_priority', 0.0, 'share') | 10 0 0 | 22.0 | +0.0 | 20 0
-('A:bay0|B:bay1', 'fixed_priority', 0.5, 'own') | 10 0 0 | 52.9 | +29.3 | 1 22
-('A:bay0|B:bay1', 'fixed_priority', 0.5, 'share') | 10 0 0 | 23.5 | +0.0 | 20 0
-('A:bay0|B:bay1', 'rules_default', 0.0, 'own') | 10 0 0 | 51.6 | +29.6 | 1 20
-('A:bay0|B:bay1', 'rules_default', 0.0, 'share') | 10 0 0 | 22.0 | +0.0 | 20 0
-('A:bay0|B:bay1', 'rules_default', 0.5, 'own') | 10 0 0 | 52.9 | +29.3 | 1 22
-('A:bay0|B:bay1', 'rules_default', 0.5, 'share') | 10 0 0 | 23.5 | +0.0 | 20 0
-('A:bay0|B:bay1', 'cost_bid', 0.0, 'own') | 10 0 0 | 31.1 | +9.1 | 10 20
-('A:bay0|B:bay1', 'cost_bid', 0.0, 'share') | 10 0 0 | 22.0 | +0.0 | 20 0
-('A:bay0|B:bay1', 'cost_bid', 0.5, 'own') | 10 0 0 | 32.8 | +9.3 | 10 22
-('A:bay0|B:bay1', 'cost_bid', 0.5, 'share') | 10 0 0 | 23.5 | +0.0 | 20 0
-('A:none', 'fixed_priority', 0.0, 'own') | 10 0 0 | 53.1 | +31.1 | 0 20
-('A:none', 'fixed_priority', 0.0, 'share') | 10 0 0 | 22.0 | +0.0 | 20 0
-('A:none', 'fixed_priority', 0.5, 'own') | 10 0 0 | 54.4 | +30.9 | 0 22
-('A:none', 'fixed_priority', 0.5, 'share') | 10 0 0 | 23.5 | +0.0 | 20 0
-('A:none', 'rules_default', 0.0, 'own') | 10 0 0 | 53.1 | +31.1 | 0 20
-('A:none', 'rules_default', 0.0, 'share') | 10 0 0 | 22.0 | +0.0 | 20 0
-('A:none', 'rules_default', 0.5, 'own') | 10 0 0 | 54.4 | +30.9 | 0 22
-('A:none', 'rules_default', 0.5, 'share') | 10 0 0 | 23.5 | +0.0 | 20 0
-('A:none', 'cost_bid', 0.0, 'own') | 10 0 0 | 53.1 | +31.1 | 0 20
-('A:none', 'cost_bid', 0.0, 'share') | 10 0 0 | 22.0 | +0.0 | 20 0
-('A:none', 'cost_bid', 0.5, 'own') | 10 0 0 | 54.4 | +30.9 | 0 22
-('A:none', 'cost_bid', 0.5, 'share') | 10 0 0 | 23.5 | +0.0 | 20 0
-('A:none|B:none', 'fixed_priority', 0.0, 'own') | 10 0 0 | 53.1 | +31.1 | 0 0
-('A:none|B:none', 'fixed_priority', 0.0, 'share') | 10 0 0 | 53.1 | +31.1 | 0 0
-('A:none|B:none', 'fixed_priority', 0.5, 'own') | 10 0 0 | 54.4 | +30.9 | 0 0
-('A:none|B:none', 'fixed_priority', 0.5, 'share') | 10 0 0 | 54.4 | +30.9 | 0 0
-('A:none|B:none', 'rules_default', 0.0, 'own') | 10 0 0 | 53.1 | +31.1 | 0 0
-('A:none|B:none', 'rules_default', 0.0, 'share') | 10 0 0 | 53.1 | +31.1 | 0 0
-('A:none|B:none', 'rules_default', 0.5, 'own') | 10 0 0 | 54.4 | +30.9 | 0 0
-('A:none|B:none', 'rules_default', 0.5, 'share') | 10 0 0 | 54.4 | +30.9 | 0 0
-('A:none|B:none', 'cost_bid', 0.0, 'own') | 10 0 0 | 53.1 | +31.1 | 0 0
-('A:none|B:none', 'cost_bid', 0.0, 'share') | 10 0 0 | 53.1 | +31.1 | 0 0
-('A:none|B:none', 'cost_bid', 0.5, 'own') | 10 0 0 | 54.4 | +30.9 | 0 0
-('A:none|B:none', 'cost_bid', 0.5, 'share') | 10 0 0 | 54.4 | +30.9 | 0 0
-done
+knowledge policy loss map commit | succ dead coll | mean delay | mean extra vs full | learned mismatch
+('full', 'fixed_priority', 0.0, 'own', 'commit') | 10 0 0 | 22.0 | +0.0 | 0 0
+('full', 'fixed_priority', 0.0, 'own', 'no_commit') | 10 0 0 | 21.5 | +0.0 | 0 0
+('full', 'fixed_priority', 0.0, 'share', 'commit') | 10 0 0 | 22.0 | +0.0 | 0 0
+('full', 'fixed_priority', 0.0, 'share', 'no_commit') | 10 0 0 | 21.5 | +0.0 | 0 0
+('full', 'fixed_priority', 0.5, 'own', 'commit') | 10 0 0 | 23.5 | +0.0 | 0 0
+('full', 'fixed_priority', 0.5, 'own', 'no_commit') | 10 0 0 | 22.1 | +0.0 | 0 0
+('full', 'fixed_priority', 0.5, 'share', 'commit') | 10 0 0 | 23.5 | +0.0 | 0 0
+('full', 'fixed_priority', 0.5, 'share', 'no_commit') | 10 0 0 | 22.1 | +0.0 | 0 0
+('full', 'rules_default', 0.0, 'own', 'commit') | 10 0 0 | 22.0 | +0.0 | 0 0
+('full', 'rules_default', 0.0, 'own', 'no_commit') | 10 0 0 | 21.5 | +0.0 | 0 0
+('full', 'rules_default', 0.0, 'share', 'commit') | 10 0 0 | 22.0 | +0.0 | 0 0
+('full', 'rules_default', 0.0, 'share', 'no_commit') | 10 0 0 | 21.5 | +0.0 | 0 0
+('full', 'rules_default', 0.5, 'own', 'commit') | 10 0 0 | 23.5 | +0.0 | 0 0
+('full', 'rules_default', 0.5, 'own', 'no_commit') | 10 0 0 | 22.1 | +0.0 | 0 0
+('full', 'rules_default', 0.5, 'share', 'commit') | 10 0 0 | 23.5 | +0.0 | 0 0
+('full', 'rules_default', 0.5, 'share', 'no_commit') | 10 0 0 | 22.1 | +0.0 | 0 0
+('full', 'cost_bid', 0.0, 'own', 'commit') | 10 0 0 | 22.0 | +0.0 | 0 0
+('full', 'cost_bid', 0.0, 'own', 'no_commit') | 10 0 0 | 21.5 | +0.0 | 0 0
+('full', 'cost_bid', 0.0, 'share', 'commit') | 10 0 0 | 22.0 | +0.0 | 0 0
+('full', 'cost_bid', 0.0, 'share', 'no_commit') | 10 0 0 | 21.5 | +0.0 | 0 0
+('full', 'cost_bid', 0.5, 'own', 'commit') | 10 0 0 | 23.5 | +0.0 | 0 0
+('full', 'cost_bid', 0.5, 'own', 'no_commit') | 10 0 0 | 22.1 | +0.0 | 0 0
+('full', 'cost_bid', 0.5, 'share', 'commit') | 10 0 0 | 23.5 | +0.0 | 0 0
+('full', 'cost_bid', 0.5, 'share', 'no_commit') | 10 0 0 | 22.1 | +0.0 | 0 0
+('A:bay0', 'fixed_priority', 0.0, 'own', 'commit') | 10 0 0 | 51.6 | +29.6 | 0 20
+('A:bay0', 'fixed_priority', 0.0, 'own', 'no_commit') | 10 0 0 | 21.5 | +0.0 | 0 0
+('A:bay0', 'fixed_priority', 0.0, 'share', 'commit') | 10 0 0 | 22.0 | +0.0 | 10 0
+('A:bay0', 'fixed_priority', 0.0, 'share', 'no_commit') | 10 0 0 | 21.5 | +0.0 | 10 0
+('A:bay0', 'fixed_priority', 0.5, 'own', 'commit') | 10 0 0 | 52.9 | +29.3 | 0 22
+('A:bay0', 'fixed_priority', 0.5, 'own', 'no_commit') | 10 0 0 | 33.4 | +11.3 | 0 9
+('A:bay0', 'fixed_priority', 0.5, 'share', 'commit') | 10 0 0 | 23.5 | +0.0 | 10 0
+('A:bay0', 'fixed_priority', 0.5, 'share', 'no_commit') | 10 0 0 | 22.1 | +0.0 | 10 0
+('A:bay0', 'rules_default', 0.0, 'own', 'commit') | 10 0 0 | 51.6 | +29.6 | 0 20
+('A:bay0', 'rules_default', 0.0, 'own', 'no_commit') | 10 0 0 | 21.5 | +0.0 | 0 0
+('A:bay0', 'rules_default', 0.0, 'share', 'commit') | 10 0 0 | 22.0 | +0.0 | 10 0
+('A:bay0', 'rules_default', 0.0, 'share', 'no_commit') | 10 0 0 | 21.5 | +0.0 | 10 0
+('A:bay0', 'rules_default', 0.5, 'own', 'commit') | 10 0 0 | 52.9 | +29.3 | 0 22
+('A:bay0', 'rules_default', 0.5, 'own', 'no_commit') | 10 0 0 | 33.4 | +11.3 | 0 9
+('A:bay0', 'rules_default', 0.5, 'share', 'commit') | 10 0 0 | 23.5 | +0.0 | 10 0
+('A:bay0', 'rules_default', 0.5, 'share', 'no_commit') | 10 0 0 | 22.1 | +0.0 | 10 0
+('A:bay0', 'cost_bid', 0.0, 'own', 'commit') | 10 0 0 | 31.1 | +9.1 | 0 20
+('A:bay0', 'cost_bid', 0.0, 'own', 'no_commit') | 10 0 0 | 30.4 | +9.0 | 0 0
+('A:bay0', 'cost_bid', 0.0, 'share', 'commit') | 10 0 0 | 22.0 | +0.0 | 10 0
+('A:bay0', 'cost_bid', 0.0, 'share', 'no_commit') | 10 0 0 | 21.5 | +0.0 | 10 0
+('A:bay0', 'cost_bid', 0.5, 'own', 'commit') | 10 0 0 | 32.8 | +9.3 | 0 22
+('A:bay0', 'cost_bid', 0.5, 'own', 'no_commit') | 10 0 0 | 27.4 | +5.3 | 0 5
+('A:bay0', 'cost_bid', 0.5, 'share', 'commit') | 10 0 0 | 23.5 | +0.0 | 10 0
+('A:bay0', 'cost_bid', 0.5, 'share', 'no_commit') | 10 0 0 | 22.1 | +0.0 | 10 0
+('A:bay1', 'fixed_priority', 0.0, 'own', 'commit') | 10 0 0 | 22.0 | +0.0 | 0 0
+('A:bay1', 'fixed_priority', 0.0, 'own', 'no_commit') | 10 0 0 | 21.5 | +0.0 | 0 0
+('A:bay1', 'fixed_priority', 0.0, 'share', 'commit') | 10 0 0 | 22.0 | +0.0 | 10 0
+('A:bay1', 'fixed_priority', 0.0, 'share', 'no_commit') | 10 0 0 | 21.5 | +0.0 | 10 0
+('A:bay1', 'fixed_priority', 0.5, 'own', 'commit') | 10 0 0 | 23.5 | +0.0 | 0 0
+('A:bay1', 'fixed_priority', 0.5, 'own', 'no_commit') | 10 0 0 | 22.1 | +0.0 | 0 0
+('A:bay1', 'fixed_priority', 0.5, 'share', 'commit') | 10 0 0 | 23.5 | +0.0 | 10 0
+('A:bay1', 'fixed_priority', 0.5, 'share', 'no_commit') | 10 0 0 | 22.1 | +0.0 | 10 0
+('A:bay1', 'rules_default', 0.0, 'own', 'commit') | 10 0 0 | 22.0 | +0.0 | 0 0
+('A:bay1', 'rules_default', 0.0, 'own', 'no_commit') | 10 0 0 | 21.5 | +0.0 | 0 0
+('A:bay1', 'rules_default', 0.0, 'share', 'commit') | 10 0 0 | 22.0 | +0.0 | 10 0
+('A:bay1', 'rules_default', 0.0, 'share', 'no_commit') | 10 0 0 | 21.5 | +0.0 | 10 0
+('A:bay1', 'rules_default', 0.5, 'own', 'commit') | 10 0 0 | 23.5 | +0.0 | 0 0
+('A:bay1', 'rules_default', 0.5, 'own', 'no_commit') | 10 0 0 | 22.1 | +0.0 | 0 0
+('A:bay1', 'rules_default', 0.5, 'share', 'commit') | 10 0 0 | 23.5 | +0.0 | 10 0
+('A:bay1', 'rules_default', 0.5, 'share', 'no_commit') | 10 0 0 | 22.1 | +0.0 | 10 0
+('A:bay1', 'cost_bid', 0.0, 'own', 'commit') | 10 0 0 | 22.0 | +0.0 | 0 0
+('A:bay1', 'cost_bid', 0.0, 'own', 'no_commit') | 10 0 0 | 21.5 | +0.0 | 0 0
+('A:bay1', 'cost_bid', 0.0, 'share', 'commit') | 10 0 0 | 22.0 | +0.0 | 10 0
+('A:bay1', 'cost_bid', 0.0, 'share', 'no_commit') | 10 0 0 | 21.5 | +0.0 | 10 0
+('A:bay1', 'cost_bid', 0.5, 'own', 'commit') | 10 0 0 | 23.5 | +0.0 | 0 0
+('A:bay1', 'cost_bid', 0.5, 'own', 'no_commit') | 10 0 0 | 22.1 | +0.0 | 0 0
+('A:bay1', 'cost_bid', 0.5, 'share', 'commit') | 10 0 0 | 23.5 | +0.0 | 10 0
+('A:bay1', 'cost_bid', 0.5, 'share', 'no_commit') | 10 0 0 | 22.1 | +0.0 | 10 0
+('B:bay0', 'fixed_priority', 0.0, 'own', 'commit') | 10 0 0 | 22.0 | +0.0 | 10 20
+('B:bay0', 'fixed_priority', 0.0, 'own', 'no_commit') | 10 0 0 | 52.3 | +30.9 | 0 0
+('B:bay0', 'fixed_priority', 0.0, 'share', 'commit') | 10 0 0 | 22.0 | +0.0 | 10 0
+('B:bay0', 'fixed_priority', 0.0, 'share', 'no_commit') | 10 0 0 | 21.5 | +0.0 | 10 0
+('B:bay0', 'fixed_priority', 0.5, 'own', 'commit') | 10 0 0 | 23.5 | +0.0 | 10 22
+('B:bay0', 'fixed_priority', 0.5, 'own', 'no_commit') | 10 0 0 | 42.0 | +19.9 | 4 9
+('B:bay0', 'fixed_priority', 0.5, 'share', 'commit') | 10 0 0 | 23.5 | +0.0 | 10 0
+('B:bay0', 'fixed_priority', 0.5, 'share', 'no_commit') | 10 0 0 | 22.1 | +0.0 | 10 0
+('B:bay0', 'rules_default', 0.0, 'own', 'commit') | 10 0 0 | 22.0 | +0.0 | 10 20
+('B:bay0', 'rules_default', 0.0, 'own', 'no_commit') | 10 0 0 | 52.3 | +30.9 | 0 0
+('B:bay0', 'rules_default', 0.0, 'share', 'commit') | 10 0 0 | 22.0 | +0.0 | 10 0
+('B:bay0', 'rules_default', 0.0, 'share', 'no_commit') | 10 0 0 | 21.5 | +0.0 | 10 0
+('B:bay0', 'rules_default', 0.5, 'own', 'commit') | 10 0 0 | 23.5 | +0.0 | 10 22
+('B:bay0', 'rules_default', 0.5, 'own', 'no_commit') | 10 0 0 | 42.0 | +19.9 | 4 9
+('B:bay0', 'rules_default', 0.5, 'share', 'commit') | 10 0 0 | 23.5 | +0.0 | 10 0
+('B:bay0', 'rules_default', 0.5, 'share', 'no_commit') | 10 0 0 | 22.1 | +0.0 | 10 0
+('B:bay0', 'cost_bid', 0.0, 'own', 'commit') | 10 0 0 | 22.0 | +0.0 | 10 20
+('B:bay0', 'cost_bid', 0.0, 'own', 'no_commit') | 8 2 0 | 174.1 | +153.0 | 0 0
+('B:bay0', 'cost_bid', 0.0, 'share', 'commit') | 10 0 0 | 22.0 | +0.0 | 10 0
+('B:bay0', 'cost_bid', 0.0, 'share', 'no_commit') | 10 0 0 | 21.5 | +0.0 | 10 0
+('B:bay0', 'cost_bid', 0.5, 'own', 'commit') | 10 0 0 | 23.5 | +0.0 | 10 22
+('B:bay0', 'cost_bid', 0.5, 'own', 'no_commit') | 5 5 0 | 57.6 | +35.2 | 4 18
+('B:bay0', 'cost_bid', 0.5, 'share', 'commit') | 10 0 0 | 23.5 | +0.0 | 10 0
+('B:bay0', 'cost_bid', 0.5, 'share', 'no_commit') | 10 0 0 | 22.1 | +0.0 | 10 0
+('A:bay0|B:bay1', 'fixed_priority', 0.0, 'own', 'commit') | 10 0 0 | 51.6 | +29.6 | 1 20
+('A:bay0|B:bay1', 'fixed_priority', 0.0, 'own', 'no_commit') | 10 0 0 | 21.5 | +0.0 | 0 0
+('A:bay0|B:bay1', 'fixed_priority', 0.0, 'share', 'commit') | 10 0 0 | 22.0 | +0.0 | 20 0
+('A:bay0|B:bay1', 'fixed_priority', 0.0, 'share', 'no_commit') | 10 0 0 | 21.5 | +0.0 | 20 0
+('A:bay0|B:bay1', 'fixed_priority', 0.5, 'own', 'commit') | 10 0 0 | 52.9 | +29.3 | 1 22
+('A:bay0|B:bay1', 'fixed_priority', 0.5, 'own', 'no_commit') | 10 0 0 | 33.4 | +11.3 | 1 9
+('A:bay0|B:bay1', 'fixed_priority', 0.5, 'share', 'commit') | 10 0 0 | 23.5 | +0.0 | 20 0
+('A:bay0|B:bay1', 'fixed_priority', 0.5, 'share', 'no_commit') | 10 0 0 | 22.1 | +0.0 | 20 0
+('A:bay0|B:bay1', 'rules_default', 0.0, 'own', 'commit') | 10 0 0 | 51.6 | +29.6 | 1 20
+('A:bay0|B:bay1', 'rules_default', 0.0, 'own', 'no_commit') | 10 0 0 | 21.5 | +0.0 | 0 0
+('A:bay0|B:bay1', 'rules_default', 0.0, 'share', 'commit') | 10 0 0 | 22.0 | +0.0 | 20 0
+('A:bay0|B:bay1', 'rules_default', 0.0, 'share', 'no_commit') | 10 0 0 | 21.5 | +0.0 | 20 0
+('A:bay0|B:bay1', 'rules_default', 0.5, 'own', 'commit') | 10 0 0 | 52.9 | +29.3 | 1 22
+('A:bay0|B:bay1', 'rules_default', 0.5, 'own', 'no_commit') | 10 0 0 | 33.4 | +11.3 | 1 9
+('A:bay0|B:bay1', 'rules_default', 0.5, 'share', 'commit') | 10 0 0 | 23.5 | +0.0 | 20 0
+('A:bay0|B:bay1', 'rules_default', 0.5, 'share', 'no_commit') | 10 0 0 | 22.1 | +0.0 | 20 0
+('A:bay0|B:bay1', 'cost_bid', 0.0, 'own', 'commit') | 10 0 0 | 31.1 | +9.1 | 10 20
+('A:bay0|B:bay1', 'cost_bid', 0.0, 'own', 'no_commit') | 10 0 0 | 30.4 | +9.0 | 0 0
+('A:bay0|B:bay1', 'cost_bid', 0.0, 'share', 'commit') | 10 0 0 | 22.0 | +0.0 | 20 0
+('A:bay0|B:bay1', 'cost_bid', 0.0, 'share', 'no_commit') | 10 0 0 | 21.5 | +0.0 | 20 0
+('A:bay0|B:bay1', 'cost_bid', 0.5, 'own', 'commit') | 10 0 0 | 32.8 | +9.3 | 10 22
+('A:bay0|B:bay1', 'cost_bid', 0.5, 'own', 'no_commit') | 10 0 0 | 27.4 | +5.3 | 3 5
+('A:bay0|B:bay1', 'cost_bid', 0.5, 'share', 'commit') | 10 0 0 | 23.5 | +0.0 | 20 0
+('A:bay0|B:bay1', 'cost_bid', 0.5, 'share', 'no_commit') | 10 0 0 | 22.1 | +0.0 | 20 0
+('A:none', 'fixed_priority', 0.0, 'own', 'commit') | 10 0 0 | 53.1 | +31.1 | 0 20
+('A:none', 'fixed_priority', 0.0, 'own', 'no_commit') | 10 0 0 | 21.5 | +0.0 | 0 0
+('A:none', 'fixed_priority', 0.0, 'share', 'commit') | 10 0 0 | 22.0 | +0.0 | 20 0
+('A:none', 'fixed_priority', 0.0, 'share', 'no_commit') | 10 0 0 | 21.5 | +0.0 | 20 0
+('A:none', 'fixed_priority', 0.5, 'own', 'commit') | 10 0 0 | 54.4 | +30.9 | 0 22
+('A:none', 'fixed_priority', 0.5, 'own', 'no_commit') | 10 0 0 | 34.6 | +12.4 | 0 9
+('A:none', 'fixed_priority', 0.5, 'share', 'commit') | 10 0 0 | 23.5 | +0.0 | 20 0
+('A:none', 'fixed_priority', 0.5, 'share', 'no_commit') | 10 0 0 | 22.1 | +0.0 | 20 0
+('A:none', 'rules_default', 0.0, 'own', 'commit') | 10 0 0 | 53.1 | +31.1 | 0 20
+('A:none', 'rules_default', 0.0, 'own', 'no_commit') | 10 0 0 | 21.5 | +0.0 | 0 0
+('A:none', 'rules_default', 0.0, 'share', 'commit') | 10 0 0 | 22.0 | +0.0 | 20 0
+('A:none', 'rules_default', 0.0, 'share', 'no_commit') | 10 0 0 | 21.5 | +0.0 | 20 0
+('A:none', 'rules_default', 0.5, 'own', 'commit') | 10 0 0 | 54.4 | +30.9 | 0 22
+('A:none', 'rules_default', 0.5, 'own', 'no_commit') | 10 0 0 | 34.6 | +12.4 | 0 9
+('A:none', 'rules_default', 0.5, 'share', 'commit') | 10 0 0 | 23.5 | +0.0 | 20 0
+('A:none', 'rules_default', 0.5, 'share', 'no_commit') | 10 0 0 | 22.1 | +0.0 | 20 0
+('A:none', 'cost_bid', 0.0, 'own', 'commit') | 10 0 0 | 53.1 | +31.1 | 0 20
+('A:none', 'cost_bid', 0.0, 'own', 'no_commit') | 10 0 0 | 21.5 | +0.0 | 0 0
+('A:none', 'cost_bid', 0.0, 'share', 'commit') | 10 0 0 | 22.0 | +0.0 | 20 0
+('A:none', 'cost_bid', 0.0, 'share', 'no_commit') | 10 0 0 | 21.5 | +0.0 | 20 0
+('A:none', 'cost_bid', 0.5, 'own', 'commit') | 10 0 0 | 54.4 | +30.9 | 0 22
+('A:none', 'cost_bid', 0.5, 'own', 'no_commit') | 10 0 0 | 34.6 | +12.4 | 0 9
+('A:none', 'cost_bid', 0.5, 'share', 'commit') | 10 0 0 | 23.5 | +0.0 | 20 0
+('A:none', 'cost_bid', 0.5, 'share', 'no_commit') | 10 0 0 | 22.1 | +0.0 | 20 0
+('A:none|B:none', 'fixed_priority', 0.0, 'own', 'commit') | 10 0 0 | 53.1 | +31.1 | 0 0
+('A:none|B:none', 'fixed_priority', 0.0, 'own', 'no_commit') | 10 0 0 | 52.5 | +31.0 | 0 0
+('A:none|B:none', 'fixed_priority', 0.0, 'share', 'commit') | 10 0 0 | 53.1 | +31.1 | 0 0
+('A:none|B:none', 'fixed_priority', 0.0, 'share', 'no_commit') | 10 0 0 | 52.5 | +31.0 | 0 0
+('A:none|B:none', 'fixed_priority', 0.5, 'own', 'commit') | 10 0 0 | 54.4 | +30.9 | 0 0
+('A:none|B:none', 'fixed_priority', 0.5, 'own', 'no_commit') | 10 0 0 | 53.2 | +31.1 | 0 0
+('A:none|B:none', 'fixed_priority', 0.5, 'share', 'commit') | 10 0 0 | 54.4 | +30.9 | 0 0
+('A:none|B:none', 'fixed_priority', 0.5, 'share', 'no_commit') | 10 0 0 | 53.2 | +31.1 | 0 0
+('A:none|B:none', 'rules_default', 0.0, 'own', 'commit') | 10 0 0 | 53.1 | +31.1 | 0 0
+('A:none|B:none', 'rules_default', 0.0, 'own', 'no_commit') | 10 0 0 | 52.5 | +31.0 | 0 0
+('A:none|B:none', 'rules_default', 0.0, 'share', 'commit') | 10 0 0 | 53.1 | +31.1 | 0 0
+('A:none|B:none', 'rules_default', 0.0, 'share', 'no_commit') | 10 0 0 | 52.5 | +31.0 | 0 0
+('A:none|B:none', 'rules_default', 0.5, 'own', 'commit') | 10 0 0 | 54.4 | +30.9 | 0 0
+('A:none|B:none', 'rules_default', 0.5, 'own', 'no_commit') | 10 0 0 | 53.2 | +31.1 | 0 0
+('A:none|B:none', 'rules_default', 0.5, 'share', 'commit') | 10 0 0 | 54.4 | +30.9 | 0 0
+('A:none|B:none', 'rules_default', 0.5, 'share', 'no_commit') | 10 0 0 | 53.2 | +31.1 | 0 0
+('A:none|B:none', 'cost_bid', 0.0, 'own', 'commit') | 10 0 0 | 53.1 | +31.1 | 0 0
+('A:none|B:none', 'cost_bid', 0.0, 'own', 'no_commit') | 10 0 0 | 52.5 | +31.0 | 0 0
+('A:none|B:none', 'cost_bid', 0.0, 'share', 'commit') | 10 0 0 | 53.1 | +31.1 | 0 0
+('A:none|B:none', 'cost_bid', 0.0, 'share', 'no_commit') | 10 0 0 | 52.5 | +31.0 | 0 0
+('A:none|B:none', 'cost_bid', 0.5, 'own', 'commit') | 10 0 0 | 54.4 | +30.9 | 0 0
+('A:none|B:none', 'cost_bid', 0.5, 'own', 'no_commit') | 10 0 0 | 53.2 | +31.1 | 0 0
+('A:none|B:none', 'cost_bid', 0.5, 'share', 'commit') | 10 0 0 | 54.4 | +30.9 | 0 0
+('A:none|B:none', 'cost_bid', 0.5, 'share', 'no_commit') | 10 0 0 | 53.2 | +31.1 | 0 0

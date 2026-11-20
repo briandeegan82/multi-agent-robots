@@ -1,12 +1,20 @@
-| policy | loss | n | success | deadlock | collision | mean total delay (s, successes) |
-|---|---|---|---|---|---|---|
-| reactive | 0% | 48 | 28 | 20 | 0 | 210.8 |
-| reactive | 50% | 48 | 28 | 20 | 0 | 210.8 |
-| fixed_priority | 0% | 48 | 48 | 0 | 0 | 60.5 |
-| fixed_priority | 50% | 48 | 48 | 0 | 0 | 65.5 |
-| rules_default | 0% | 48 | 48 | 0 | 0 | 53.1 |
-| rules_default | 50% | 48 | 48 | 0 | 0 | 55.5 |
-| cost_bid | 0% | 48 | 48 | 0 | 0 | 48.9 |
-| cost_bid | 50% | 48 | 48 | 0 | 0 | 49.7 |
+| policy | loss | goal_wait | n | success | deadlock | collision | mean total delay (s, successes) |
+|---|---|---|---|---|---|---|---|
+| reactive | 0% | on | 48 | 28 | 20 | 0 | 210.8 |
+| reactive | 50% | on | 48 | 28 | 20 | 0 | 210.8 |
+| fixed_priority | 0% | on | 48 | 48 | 0 | 0 | 60.5 |
+| fixed_priority | 50% | on | 48 | 48 | 0 | 0 | 65.5 |
+| rules_default | 0% | on | 48 | 48 | 0 | 0 | 53.1 |
+| rules_default | 50% | on | 48 | 48 | 0 | 0 | 55.5 |
+| cost_bid | 0% | on | 48 | 48 | 0 | 0 | 48.9 |
+| cost_bid | 50% | on | 48 | 48 | 0 | 0 | 49.7 |
+| reactive | 0% | off | 48 | 28 | 20 | 0 | 210.8 |
+| reactive | 50% | off | 48 | 28 | 20 | 0 | 210.8 |
+| fixed_priority | 0% | off | 48 | 16 | 32 | 0 | 74.9 |
+| fixed_priority | 50% | off | 48 | 26 | 22 | 0 | 131.7 |
+| rules_default | 0% | off | 48 | 36 | 12 | 0 | 63.1 |
+| rules_default | 50% | off | 48 | 40 | 8 | 0 | 65.1 |
+| cost_bid | 0% | off | 48 | 44 | 4 | 0 | 60.7 |
+| cost_bid | 50% | off | 48 | 48 | 0 | 0 | 61.6 |
 
-non-reactive failures (pol, sdA, sdB, sdS, S goal_x, loss, seed): []
+non-reactive failures with goal_wait on (pol, sdA, sdB, sdS, S goal_x, loss, seed): []
