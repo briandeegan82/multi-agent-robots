@@ -16,8 +16,8 @@ def wilson(k, n):
 def rate(s):
     k, n = int(s.sum()), len(s); lo, hi = wilson(k, n); return f"{100*k/n:.1f}% [{100*lo:.0f}–{100*hi:.0f}]"
 def keycols(df):
-    base = {'study','label','seed','success','deadlock','collision','makespan','total_delay','max_delay','wdelay','jain','reverse_dist','yielder','n_yielders','refuge','rule','msgs','msgs_dropped','time_to_decide','agreement','n_yields','min_clearance','wall_hits'}
-    return [c for c in df.columns if c not in base and not c.startswith('delay_') and not c.startswith('reverse_')]
+    base = {'study','label','seed','success','deadlock','collision','makespan','total_delay','max_delay','wdelay','jain','reverse_dist','yielder','n_yielders','refuge','rule','msgs','msgs_dropped','time_to_decide','agreement','n_yields','min_clearance','wall_hits','n_decisions','pred_yielder_delay','pred_proceeder_delay'}
+    return [c for c in df.columns if c not in base and not c.startswith(('delay_', 'reverse_', 'bid_'))]
 def paired(df, ref='oracle', metric='total_delay'):
     k = keycols(df) + ['seed']
     o = df[df.label == ref][k + [metric, 'yielder']].rename(columns={metric: 'ref', 'yielder': 'ref_yielder'})
