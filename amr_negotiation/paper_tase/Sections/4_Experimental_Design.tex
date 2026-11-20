@@ -40,7 +40,7 @@ Table~\ref{tab:taxonomy} summarizes the nine policies evaluated across the bench
 \texttt{reactive} (R) uses no communication; when Lidar detects an oncoming peer within braking distance, the robot stops, waits a random patience duration $U[2,6]$\,s to break symmetry, and reverses into the nearest refuge behind it if still blocked.
 \texttt{reservation} (S) emulates first-come, first-served (FCFS) industrial zone control~\cite{fanti2002event} via \texttt{STATE} beacons; a robot outside the corridor ($[0,L]$) waits in its staging room whenever an opposing vehicle is already inside the aisle (falling back to \texttt{rules\_default} if both enter simultaneously).
 \texttt{fixed\_priority} (F) is a static rule where the higher-ID robot always yields into its best feasible refuge $r^\ast$ unless no refuge is available ($\mathcal{F}=\emptyset$).
-\texttt{rules\_default} (D) applies an ordered six-tier etiquette~\cite{kato1992coordinating,highwaycode} evaluated sequentially, checking 
+\texttt{rules\_default} (D) is a rulebook in the sense of~\cite{censi2019rulebooks}, an ordered six-tier hierarchy whose tiers are inspired by traffic etiquette~\cite{kato1992coordinating,highwaycode} and evaluated sequentially, checking 
 (1)~refuge availability (if only one robot has a feasible refuge $\mathcal{F} \neq \emptyset$, it yields); 
 (2)~task urgency (if $|u_A - u_B| \ge 0.5$, the less urgent robot yields); 
 (3)~payload status (an unloaded robot yields to a loaded one); 

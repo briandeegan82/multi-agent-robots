@@ -285,6 +285,7 @@ ENTRY
     title
     type
     url
+    doi
     volume
     year
     yearfiled
@@ -1905,8 +1906,21 @@ cap.status.std
 
 %% URL
 
+FUNCTION {format.doi}
+{ this.to.prev.status
+  this.status.std
+  cap.yes 'status.cap :=
+  "doi: \href{https://doi.org/" doi * "}{\nolinkurl{" * doi * "}}" *
+  punct.no 'this.status.punct :=
+  punct.period 'prev.status.punct :=
+  space.normal 'this.status.space :=
+  space.normal 'prev.status.space :=
+  quote.no 'this.status.quote :=
+}
+
 FUNCTION {format.url}
-{ is.use.url
+{ doi empty$
+  { is.use.url
     { url empty$
       { "" }
       { this.to.prev.status
@@ -1923,6 +1937,9 @@ FUNCTION {format.url}
     if$
     }
     { "" }
+  if$
+  }
+  { format.doi }
   if$
 }
 
