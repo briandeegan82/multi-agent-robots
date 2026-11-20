@@ -43,9 +43,9 @@
 \bibitem{abb_towing_amrs}
 \BIBentryALTinterwordspacing
 ------. (2023, Apr.) Towing {AMRs}: The ideal solution for the transport of
-  loads on trolleys. ABB News Center. Zurich, Switzerland. Accessed: Nov. 1,
-  2026. [Online]. Available:
-  \url{https://new.abb.com/news/detail/101918/towing-amrs-the-ideal-solution-for-the-transport-of-loads-on-trolleys}
+  loads on trolleys. ABB News Center. Zurich, Switzerland. Archived Mar. 8,
+  2024; accessed: Nov. 20, 2026. [Online]. Available:
+  \url{https://web.archive.org/web/20240308105918/https://new.abb.com/news/detail/101918/towing-amrs-the-ideal-solution-for-the-transport-of-loads-on-trolleys}
 \BIBentrySTDinterwordspacing
 
 \bibitem{abb_goods_to_person}
@@ -59,45 +59,53 @@
 G.~Fragapane, R.~de~Koster, F.~Sgarbossa, and J.~O. Strandhagen, ``Planning and
   control of autonomous mobile robots for intralogistics: Literature review and
   research agenda,'' \emph{Eur. J. Oper. Res.}, vol. 294, no.~2, pp. 405--426,
-  2021.
+  2021. doi:
+  \href{https://doi.org/10.1016/j.ejor.2021.01.019}{\nolinkurl{10.1016/j.ejor.2021.01.019}}
 
 \bibitem{xiao2022barn}
 X.~Xiao \emph{et~al.}, ``Autonomous ground navigation in highly constrained
   spaces: Lessons learned from the second {BARN} challenge at {ICRA}~2023
   [{Competitions}],'' \emph{IEEE Robot. Autom. Mag.}, vol.~30, no.~4, pp.
-  91--97, 2023.
+  91--97, 2023. doi:
+  \href{https://doi.org/10.1109/mra.2023.3322920}{\nolinkurl{10.1109/mra.2023.3322920}}
 
 \bibitem{vandenberg2011orca}
 J.~van~den Berg, S.~J. Guy, M.~Lin, and D.~Manocha, ``Reciprocal $n$-body
   collision avoidance,'' in \emph{Springer Tracts Adv. Robot.}, 2011, pp.
-  3--19.
+  3--19. doi:
+  \href{https://doi.org/10.1007/978-3-642-19457-3_1}{\nolinkurl{10.1007/978-3-642-19457-3_1}}
 
 \bibitem{wang2017safety}
 L.~Wang, A.~D. Ames, and M.~Egerstedt, ``Safety barrier certificates for
   collisions-free multirobot systems,'' \emph{IEEE Trans. Robot.}, vol.~33,
-  no.~3, pp. 661--674, 2017.
+  no.~3, pp. 661--674, 2017. doi:
+  \href{https://doi.org/10.1109/tro.2017.2659727}{\nolinkurl{10.1109/tro.2017.2659727}}
 
 \bibitem{grover2023before}
 J.~Grover, C.~Liu, and K.~Sycara, ``The before, during, and after of
   multi-robot deadlock,'' \emph{Int. J. Robot. Res.}, vol.~42, no.~6, pp.
-  317--336, 2022.
+  317--336, 2022. doi:
+  \href{https://doi.org/10.1177/02783649221074718}{\nolinkurl{10.1177/02783649221074718}}
 
 \bibitem{dergachev2021distributed}
 S.~Dergachev and K.~Yakovlev, ``Distributed multi-agent navigation based on
   reciprocal collision avoidance and locally confined multi-agent path
   finding,'' in \emph{Proc. IEEE Int. Conf. Autom. Sci. Eng. (CASE)}, 2021, pp.
-  1489--1494.
+  1489--1494. doi:
+  \href{https://doi.org/10.1109/case49439.2021.9551564}{\nolinkurl{10.1109/case49439.2021.9551564}}
 
 \bibitem{zheng2023deadlock}
 R.~Zheng and S.~Li, ``{MCCA}: A decentralized method for collision and deadlock
   avoidance with nonholonomic robots,'' \emph{IEEE Robot. Autom. Lett.},
-  vol.~9, no.~3, pp. 2710--2717, 2024.
+  vol.~9, no.~3, pp. 2710--2717, 2024. doi:
+  \href{https://doi.org/10.1109/LRA.2024.3358623}{\nolinkurl{10.1109/LRA.2024.3358623}}
 
 \bibitem{chandra2025deadlock}
 R.~Chandra, V.~Zinage, E.~Bakolas, P.~Stone, and J.~Biswas, ``Deadlock-free,
   safe, and decentralized multi-robot navigation in social mini-games via
   discrete-time control barrier functions,'' \emph{Auton. Robots}, vol.~49,
-  no.~2, 2025.
+  no.~2, 2025. doi:
+  \href{https://doi.org/10.1007/s10514-025-10194-8}{\nolinkurl{10.1007/s10514-025-10194-8}}
 
 \bibitem{stuff_robotaxi_standoff}
 \BIBentryALTinterwordspacing
@@ -131,22 +139,26 @@ S.~Ruberg. (2024, Aug.) Endless honking of {Waymo}'s driverless taxis wakes a
 \bibitem{sharon2015cbs}
 G.~Sharon, R.~Stern, A.~Felner, and N.~R. Sturtevant, ``Conflict-based search
   for optimal multi-agent pathfinding,'' \emph{Artif. Intell.}, vol. 219, pp.
-  40--66, 2015.
+  40--66, 2015. doi:
+  \href{https://doi.org/10.1016/j.artint.2014.11.006}{\nolinkurl{10.1016/j.artint.2014.11.006}}
 
 \bibitem{stern2019mapf}
 R.~Stern \emph{et~al.}, ``Multi-agent pathfinding: Definitions, variants, and
   benchmarks,'' \emph{Proc. Int. Symp. Comb. Search (SoCS)}, vol.~10, no.~1,
-  pp. 151--158, 2021.
+  pp. 151--158, 2021. doi:
+  \href{https://doi.org/10.1609/socs.v10i1.18510}{\nolinkurl{10.1609/socs.v10i1.18510}}
 
 \bibitem{okumura2022pibt}
 K.~Okumura, M.~Machida, X.~D{\'e}fago, and Y.~Tamura, ``Priority inheritance
   with backtracking for iterative multi-agent path finding,'' \emph{Artif.
-  Intell.}, vol. 310, p. 103752, 2022.
+  Intell.}, vol. 310, p. 103752, 2022. doi:
+  \href{https://doi.org/10.1016/j.artint.2022.103752}{\nolinkurl{10.1016/j.artint.2022.103752}}
 
 \bibitem{fanti2002event}
 M.~P. Fanti, ``Event-based controller to avoid deadlock and collisions in
   zone-control {AGVs},'' \emph{Int. J. Prod. Res.}, vol.~40, no.~6, pp.
-  1453--1478, 2002.
+  1453--1478, 2002. doi:
+  \href{https://doi.org/10.1080/00207540110118073}{\nolinkurl{10.1080/00207540110118073}}
 
 \bibitem{openrmf}
 \BIBentryALTinterwordspacing
@@ -165,12 +177,14 @@ M.~P. Fanti, ``Event-based controller to avoid deadlock and collisions in
 \bibitem{gautier2022negotiated}
 A.~Gautier, A.~Stephens, B.~Lacerda, N.~Hawes, and M.~Wooldridge, ``Negotiated
   path planning for non-cooperative multi-robot systems,'' in \emph{Proc. Int.
-  Joint Conf. Auton. Agents Multiagent Syst. (AAMAS)}, 2022, pp. 472--480.
+  Joint Conf. Auton. Agents Multiagent Syst. (AAMAS)}, 2022, pp. 472--480. doi:
+  \href{https://doi.org/10.65109/dvsq3214}{\nolinkurl{10.65109/dvsq3214}}
 
 \bibitem{gielis2022critical}
 J.~Gielis, A.~Shankar, and A.~Prorok, ``A critical review of communications in
   multi-robot systems,'' \emph{Curr. Robot. Rep.}, vol.~3, no.~4, pp. 213--225,
-  2022.
+  2022. doi:
+  \href{https://doi.org/10.1007/s43154-022-00090-9}{\nolinkurl{10.1007/s43154-022-00090-9}}
 
 \bibitem{robson2013singletrack}
 \BIBentryALTinterwordspacing
@@ -190,59 +204,88 @@ G.~Robson, ``Single track road with passing places,'' Geograph Britain and
 \bibitem{george2025infrastructure}
 R.~George \emph{et~al.}, ``Infrastructure assisted autonomous driving:
   Research, challenges, and opportunities,'' \emph{IEEE Open J. Veh. Technol.},
-  vol.~6, pp. 662--716, 2025.
+  vol.~6, pp. 662--716, 2025. doi:
+  \href{https://doi.org/10.1109/ojvt.2025.3542213}{\nolinkurl{10.1109/ojvt.2025.3542213}}
 
 \bibitem{kato1992coordinating}
 S.~Kato, S.~Nishiyama, and J.~Takeno, ``Coordinating mobile robots by applying
   traffic rules,'' in \emph{Proc. IEEE/RSJ Int. Conf. Intell. Robots Syst.
-  (IROS)}, vol.~3, 1992, pp. 1535--1541.
+  (IROS)}, vol.~3, 1992, pp. 1535--1541. doi:
+  \href{https://doi.org/10.1109/iros.1992.594218}{\nolinkurl{10.1109/iros.1992.594218}}
 
 \bibitem{shoham1995social}
 Y.~Shoham and M.~Tennenholtz, ``On social laws for artificial agent societies:
   off-line design,'' \emph{Artif. Intell.}, vol.~73, no. 1--2, pp. 231--252,
-  1995.
+  1995. doi:
+  \href{https://doi.org/10.1016/0004-3702(94)00007-n}{\nolinkurl{10.1016/0004-3702(94)00007-n}}
+
+\bibitem{censi2019rulebooks}
+A.~Censi \emph{et~al.}, ``Liability, ethics, and culture-aware behavior
+  specification using rulebooks,'' in \emph{Proc. IEEE Int. Conf. Robot. Autom.
+  (ICRA)}, 2019, pp. 8536--8542. doi:
+  \href{https://doi.org/10.1109/icra.2019.8794364}{\nolinkurl{10.1109/icra.2019.8794364}}
 
 \bibitem{gerkey2002sold}
 B.~Gerkey and M.~Mataric, ``Sold!: Auction methods for multirobot
   coordination,'' \emph{IEEE Trans. Robot. Autom.}, vol.~18, no.~5, pp.
-  758--768, 2002.
+  758--768, 2002. doi:
+  \href{https://doi.org/10.1109/tra.2002.803462}{\nolinkurl{10.1109/tra.2002.803462}}
 
-\bibitem{clarke1971multipart}
-E.~H. Clarke, ``Multipart pricing of public goods,'' \emph{Public Choice},
-  vol.~11, no.~1, pp. 17--33, 1971.
+\bibitem{amir2015mapfauction}
+O.~Amir, G.~Sharon, and R.~Stern, ``Multi-agent pathfinding as a combinatorial
+  auction,'' \emph{Proc. AAAI Conf. Artif. Intell.}, vol.~29, no.~1, 2015. doi:
+  \href{https://doi.org/10.1609/aaai.v29i1.9427}{\nolinkurl{10.1609/aaai.v29i1.9427}}
+
+\bibitem{das2021omcorp}
+S.~N. Das, S.~Nath, and I.~Saha, ``{OMCoRP}: An online mechanism for
+  competitive robot prioritization,'' \emph{Proc. Int. Conf. Autom. Plan.
+  Sched. (ICAPS)}, vol.~31, pp. 112--121, 2021. doi:
+  \href{https://doi.org/10.1609/icaps.v31i1.15953}{\nolinkurl{10.1609/icaps.v31i1.15953}}
+
+\bibitem{friedrich2024scalable}
+P.~Friedrich \emph{et~al.}, ``Scalable mechanism design for multi-agent path
+  finding,'' in \emph{Proc. Int. Joint Conf. Artif. Intell. (IJCAI)}, 2024, pp.
+  58--66. doi:
+  \href{https://doi.org/10.24963/ijcai.2024/7}{\nolinkurl{10.24963/ijcai.2024/7}}
 
 \bibitem{censi2019karma}
 A.~Censi, S.~Bolognani, J.~G. Zilly, S.~S. Mousavi, and E.~Frazzoli, ``Today
   me, tomorrow thee: Efficient resource allocation in competitive settings
   using karma games,'' in \emph{Proc. IEEE Int. Conf. Intell. Transp. Syst.
-  (ITSC)}, 2019, pp. 686--693.
+  (ITSC)}, 2019, pp. 686--693. doi:
+  \href{https://doi.org/10.1109/ITSC.2019.8916911}{\nolinkurl{10.1109/ITSC.2019.8916911}}
 
 \bibitem{elokda2024karma}
 E.~Elokda, S.~Bolognani, A.~Censi, F.~D{\"o}rfler, and E.~Frazzoli, ``A
   self-contained karma economy for the dynamic allocation of common
   resources,'' \emph{Dyn. Games Appl.}, vol.~14, no.~3, pp. 578--610, 2024.
+  doi:
+  \href{https://doi.org/10.1007/s13235-023-00503-0}{\nolinkurl{10.1007/s13235-023-00503-0}}
 
 \bibitem{bettini2022vmas}
 M.~Bettini, R.~Kortvelesy, J.~Blumenkamp, and A.~Prorok, ``{VMAS}: A vectorized
   multi-agent simulator for collective robot learning,'' in \emph{Springer
-  Proc. Adv. Robot.}, 2024, pp. 42--56.
+  Proc. Adv. Robot.}, 2024, pp. 42--56. doi:
+  \href{https://doi.org/10.1007/978-3-031-51497-5_4}{\nolinkurl{10.1007/978-3-031-51497-5_4}}
 
 \bibitem{bettini2023heterogeneous}
 M.~Bettini, A.~Shankar, and A.~Prorok, ``Heterogeneous multi-robot
   reinforcement learning,'' in \emph{Proc. Int. Joint Conf. Auton. Agents
-  Multiagent Syst. (AAMAS)}, 2023, pp. 1485--1494.
+  Multiagent Syst. (AAMAS)}, 2023, pp. 1485--1494. doi:
+  \href{https://doi.org/10.65109/slob2372}{\nolinkurl{10.65109/slob2372}}
 
 \bibitem{park2023hallucination}
 J.-S. Park, X.~Xiao, G.~Warnell, H.~Yedidsion, and P.~Stone, ``Learning
   perceptual hallucination for multi-robot navigation in narrow hallways,'' in
   \emph{Proc. IEEE Int. Conf. Robot. Autom. (ICRA)}, 2023, pp.
-  10\,033--10\,039.
+  10\,033--10\,039. doi:
+  \href{https://doi.org/10.1109/icra48891.2023.10161327}{\nolinkurl{10.1109/icra48891.2023.10161327}}
 
 \bibitem{marlin2024}
 \BIBentryALTinterwordspacing
 T.~Godfrey, W.~Hunt, and M.~D. Soorati, ``{MARLIN}: Multi-agent reinforcement
   learning guided by language-based inter-robot negotiation,'' arXiv preprint
-  arXiv:2410.14383, 2024. [Online]. Available:
+  arXiv:2410.14383 (accepted at IEEE ROBIO 2026), 2024. [Online]. Available:
   \url{https://arxiv.org/abs/2410.14383}
 \BIBentrySTDinterwordspacing
 
@@ -250,7 +293,8 @@ T.~Godfrey, W.~Hunt, and M.~D. Soorati, ``{MARLIN}: Multi-agent reinforcement
 V.~Mahadevan, S.~Zhang, and R.~Chandra, ``{GameChat}: Multi-{LLM} dialogue for
   safe, agile, and socially optimal multi-agent navigation in constrained
   environments,'' in \emph{Proc. IEEE Int. Symp. Multi-Robot Multi-Agent Syst.
-  (MRS)}, 2025, pp. 1--7.
+  (MRS)}, 2025, pp. 1--7. doi:
+  \href{https://doi.org/10.1109/mrs66243.2025.11357267}{\nolinkurl{10.1109/mrs66243.2025.11357267}}
 
 \bibitem{garg2024llm}
 \BIBentryALTinterwordspacing
@@ -263,105 +307,14 @@ K.~Garg, S.~Zhang, J.~Arkin, and C.~Fan, ``Foundation models to the rescue:
 \bibitem{chandra2026social}
 R.~Chandra, S.~Singh, W.~Luo, and K.~Sycara, ``Multi-robot navigation in social
   mini-games: definitions, taxonomy, and algorithms,'' \emph{Auton. Robots},
-  vol.~50, no.~2, 2026.
+  vol.~50, no.~2, 2026. doi:
+  \href{https://doi.org/10.1007/s10514-026-10251-w}{\nolinkurl{10.1007/s10514-026-10251-w}}
 
 \bibitem{francis2025principles}
 A.~Francis \emph{et~al.}, ``Principles and guidelines for evaluating social
   robot navigation algorithms,'' \emph{ACM Trans. Hum.-Robot Interact.},
-  vol.~14, no.~2, pp. 1--65, 2025.
-
-\bibitem{fox1997dwa}
-D.~Fox, W.~Burgard, and S.~Thrun, ``The dynamic window approach to collision
-  avoidance,'' \emph{IEEE Robot. Autom. Mag.}, vol.~4, no.~1, pp. 23--33, 1997.
-
-\bibitem{fiorini1998motion}
-P.~Fiorini and Z.~Shiller, ``Motion planning in dynamic environments using
-  velocity obstacles,'' \emph{Int. J. Robot. Res.}, vol.~17, no.~7, pp.
-  760--772, 1998.
-
-\bibitem{okumura2023lacam}
-K.~Okumura, ``{LaCAM}: Search-based algorithm for quick multi-agent
-  pathfinding,'' \emph{Proc. AAAI Conf. Artif. Intell.}, vol.~37, no.~10, pp.
-  11\,655--11\,662, 2023.
-
-\bibitem{phillips2011sipp}
-M.~Phillips and M.~Likhachev, ``{SIPP}: Safe interval path planning for dynamic
-  environments,'' in \emph{Proc. IEEE Int. Conf. Robot. Autom. (ICRA)}, 2011,
-  pp. 5628--5635.
-
-\bibitem{experience2024narrow}
-R.~Moan, C.~McBeth, M.~Morales, N.~Amato, and K.~Hauser, ``Experience-based
-  multi-agent path finding with narrow corridors,'' in \emph{Proc. Robot.: Sci.
-  Syst. (RSS)}, 2024.
-
-\bibitem{macga2025}
-A.~Pertzovskiy, R.~Stern, R.~Zivan, and A.~Felner, ``Multi-agent corridor
-  generating algorithm,'' in \emph{Proc. Int. Joint Conf. Artif. Intell.
-  (IJCAI)}, 2025, pp. 240--247.
-
-\bibitem{wen2022clmapf}
-L.~Wen, Y.~Liu, and H.~Li, ``{CL-MAPF}: Multi-agent path finding for car-like
-  robots with kinematic and spatiotemporal constraints,'' \emph{Robot. Auton.
-  Syst.}, vol. 150, p. 103997, 2022.
-
-\bibitem{dbecbs2025}
-A.~Moldagalieva, J.~Ortiz-Haro, and W.~H{\"o}nig, ``{db-ECBS}:
-  Interaction-aware multirobot kinodynamic motion planning,'' \emph{IEEE Trans.
-  Robot.}, vol.~42, pp. 244--260, 2026.
-
-\bibitem{hiertraffic2023}
-F.~Pratissoli, R.~Brugioni, N.~Battilani, and L.~Sabattini, ``Hierarchical
-  traffic management of multi-{AGV} systems with deadlock prevention applied to
-  industrial environments,'' \emph{IEEE Trans. Autom. Sci. Eng.}, vol.~21,
-  no.~3, pp. 3155--3169, 2024.
-
-\bibitem{cap2016provably}
-M.~Cap, J.~Gregoire, and E.~Frazzoli, ``Provably safe and deadlock-free
-  execution of multi-robot plans under delaying disturbances,'' in \emph{Proc.
-  IEEE/RSJ Int. Conf. Intell. Robots Syst. (IROS)}, 2016, pp. 5113--5118.
-
-\bibitem{mannucci2019provably}
-A.~Mannucci, L.~Pallottino, and F.~Pecora, ``Provably safe multi-robot
-  coordination with unreliable communication,'' \emph{IEEE Robot. Autom.
-  Lett.}, vol.~4, no.~4, pp. 3232--3239, 2019.
-
-\bibitem{purwin2008theory}
-O.~Purwin, R.~D'Andrea, and J.-W. Lee, ``Theory and implementation of path
-  planning by negotiation for decentralized agents,'' \emph{Robot. Auton.
-  Syst.}, vol.~56, no.~5, pp. 422--436, 2008.
-
-\bibitem{bottleneckiv2023}
-M.~Baumann \emph{et~al.}, ``Cooperative automated driving for bottleneck
-  scenarios in mixed traffic,'' in \emph{Proc. IEEE Intell. Veh. Symp. (IV)},
-  2023, pp. 1--8.
-
-\bibitem{dresner2008multiagent}
-K.~Dresner and P.~Stone, ``A multiagent approach to autonomous intersection
-  management,'' \emph{J. Artif. Intell. Res.}, vol.~31, pp. 591--656, 2008.
-
-\bibitem{nisan2001algorithmic}
-N.~Nisan and A.~Ronen, ``Algorithmic mechanism design,'' \emph{Games Econ.
-  Behav.}, vol.~35, no. 1--2, pp. 166--196, 2001.
-
-\bibitem{green1977characterization}
-J.~Green and J.-J. Laffont, ``Characterization of satisfactory mechanisms for
-  the revelation of preferences for public goods,'' \emph{Econometrica},
-  vol.~45, no.~2, pp. 427--438, 1977.
-
-\bibitem{commfail2021}
-D.~Matos, P.~Costa, J.~Lima, and P.~Costa, ``Multi {AGV} coordination tolerant
-  to communication failures,'' \emph{Robotics}, vol.~10, no.~2, p.~55, 2021.
-
-\bibitem{chen2017cadrl}
-Y.~F. Chen, M.~Liu, M.~Everett, and J.~P. How, ``Decentralized
-  non-communicating multiagent collision avoidance with deep reinforcement
-  learning,'' in \emph{Proc. IEEE Int. Conf. Robot. Autom. (ICRA)}, 2017, pp.
-  285--292.
-
-\bibitem{yu2022mappo}
-C.~Yu \emph{et~al.}, ``The surprising effectiveness of {PPO} in cooperative
-  multi-agent games,'' in \emph{Adv. Neural Inf. Process. Syst. (NeurIPS)},
-  2022, pp. 24\,611--24\,624.
+  vol.~14, no.~2, pp. 1--65, 2025. doi:
+  \href{https://doi.org/10.1145/3700599}{\nolinkurl{10.1145/3700599}}
 
 \bibitem{vmasgiveway}
 \BIBentryALTinterwordspacing
@@ -369,6 +322,269 @@ C.~Yu \emph{et~al.}, ``The surprising effectiveness of {PPO} in cooperative
   Oct. 14, 2026. [Online]. Available:
   \url{https://github.com/proroklab/VectorizedMultiAgentSimulator/blob/main/vmas/scenarios/give_way.py}
 \BIBentrySTDinterwordspacing
+
+\bibitem{alghamdi2025opinion}
+\BIBentryALTinterwordspacing
+N.~K. Alghamdi and S.~Park, ``Opinion-driven decision-making for multi-robot
+  navigation through narrow corridors,'' arXiv preprint arXiv:2504.20947, 2025.
+  [Online]. Available: \url{https://arxiv.org/abs/2504.20947}
+\BIBentrySTDinterwordspacing
+
+\bibitem{fox1997dwa}
+D.~Fox, W.~Burgard, and S.~Thrun, ``The dynamic window approach to collision
+  avoidance,'' \emph{IEEE Robot. Autom. Mag.}, vol.~4, no.~1, pp. 23--33, 1997.
+  doi:
+  \href{https://doi.org/10.1109/100.580977}{\nolinkurl{10.1109/100.580977}}
+
+\bibitem{fiorini1998motion}
+P.~Fiorini and Z.~Shiller, ``Motion planning in dynamic environments using
+  velocity obstacles,'' \emph{Int. J. Robot. Res.}, vol.~17, no.~7, pp.
+  760--772, 1998. doi:
+  \href{https://doi.org/10.1177/027836499801700706}{\nolinkurl{10.1177/027836499801700706}}
+
+\bibitem{trinh2015goahead}
+T.~Q. Trinh, C.~Schroeter, J.~Kessler, and H.-M. Gross, ````{Go} ahead,
+  please'': Recognition and resolution of conflict situations in narrow
+  passages for polite mobile robot navigation,'' in \emph{Social Robotics
+  (ICSR)}, ser. Lecture Notes in Computer Science, 2015, pp. 643--653. doi:
+  \href{https://doi.org/10.1007/978-3-319-25554-5_64}{\nolinkurl{10.1007/978-3-319-25554-5_64}}
+
+\bibitem{verma2024traffic}
+P.~Verma, J.~M. Olm, and R.~Suarez, ``Traffic management of multi-{AGV} systems
+  by improved dynamic resource reservation,'' \emph{IEEE Access}, vol.~12, pp.
+  19\,790--19\,805, 2024. doi:
+  \href{https://doi.org/10.1109/access.2024.3362293}{\nolinkurl{10.1109/access.2024.3362293}}
+
+\bibitem{okumura2023lacam}
+K.~Okumura, ``{LaCAM}: Search-based algorithm for quick multi-agent
+  pathfinding,'' \emph{Proc. AAAI Conf. Artif. Intell.}, vol.~37, no.~10, pp.
+  11\,655--11\,662, 2023. doi:
+  \href{https://doi.org/10.1609/aaai.v37i10.26377}{\nolinkurl{10.1609/aaai.v37i10.26377}}
+
+\bibitem{phillips2011sipp}
+M.~Phillips and M.~Likhachev, ``{SIPP}: Safe interval path planning for dynamic
+  environments,'' in \emph{Proc. IEEE Int. Conf. Robot. Autom. (ICRA)}, 2011,
+  pp. 5628--5635. doi:
+  \href{https://doi.org/10.1109/ICRA.2011.5980306}{\nolinkurl{10.1109/ICRA.2011.5980306}}
+
+\bibitem{experience2024narrow}
+R.~Moan, C.~McBeth, M.~Morales, N.~Amato, and K.~Hauser, ``Experience-based
+  multi-agent path finding with narrow corridors,'' in \emph{Proc. Robot.: Sci.
+  Syst. (RSS)}, 2024. doi:
+  \href{https://doi.org/10.15607/rss.2024.xx.087}{\nolinkurl{10.15607/rss.2024.xx.087}}
+
+\bibitem{macga2025}
+A.~Pertzovskiy, R.~Stern, R.~Zivan, and A.~Felner, ``Multi-agent corridor
+  generating algorithm,'' in \emph{Proc. Int. Joint Conf. Artif. Intell.
+  (IJCAI)}, 2025, pp. 240--247. doi:
+  \href{https://doi.org/10.24963/ijcai.2025/28}{\nolinkurl{10.24963/ijcai.2025/28}}
+
+\bibitem{singh2023conflict}
+S.~K. Singh, H.~M, S.~Bhattacharya, and M.~Jha, ``Conflict-free node-to-robot
+  scheduling for lifelong operation in a warehouse with narrow-corridors,'' in
+  \emph{Proc. IEEE Conf. Decis. Control (CDC)}, 2023, pp. 6382--6387. doi:
+  \href{https://doi.org/10.1109/cdc49753.2023.10384309}{\nolinkurl{10.1109/cdc49753.2023.10384309}}
+
+\bibitem{wen2022clmapf}
+L.~Wen, Y.~Liu, and H.~Li, ``{CL-MAPF}: Multi-agent path finding for car-like
+  robots with kinematic and spatiotemporal constraints,'' \emph{Robot. Auton.
+  Syst.}, vol. 150, p. 103997, 2022. doi:
+  \href{https://doi.org/10.1016/j.robot.2021.103997}{\nolinkurl{10.1016/j.robot.2021.103997}}
+
+\bibitem{dbecbs2025}
+A.~Moldagalieva, J.~Ortiz-Haro, and W.~H{\"o}nig, ``{db-ECBS}:
+  Interaction-aware multirobot kinodynamic motion planning,'' \emph{IEEE Trans.
+  Robot.}, vol.~42, pp. 244--260, 2026. doi:
+  \href{https://doi.org/10.1109/tro.2025.3637148}{\nolinkurl{10.1109/tro.2025.3637148}}
+
+\bibitem{hiertraffic2023}
+F.~Pratissoli, R.~Brugioni, N.~Battilani, and L.~Sabattini, ``Hierarchical
+  traffic management of multi-{AGV} systems with deadlock prevention applied to
+  industrial environments,'' \emph{IEEE Trans. Autom. Sci. Eng.}, vol.~21,
+  no.~3, pp. 3155--3169, 2024. doi:
+  \href{https://doi.org/10.1109/tase.2023.3276233}{\nolinkurl{10.1109/tase.2023.3276233}}
+
+\bibitem{cap2016provably}
+M.~Cap, J.~Gregoire, and E.~Frazzoli, ``Provably safe and deadlock-free
+  execution of multi-robot plans under delaying disturbances,'' in \emph{Proc.
+  IEEE/RSJ Int. Conf. Intell. Robots Syst. (IROS)}, 2016, pp. 5113--5118. doi:
+  \href{https://doi.org/10.1109/iros.2016.7759750}{\nolinkurl{10.1109/iros.2016.7759750}}
+
+\bibitem{mannucci2019provably}
+A.~Mannucci, L.~Pallottino, and F.~Pecora, ``Provably safe multi-robot
+  coordination with unreliable communication,'' \emph{IEEE Robot. Autom.
+  Lett.}, vol.~4, no.~4, pp. 3232--3239, 2019. doi:
+  \href{https://doi.org/10.1109/lra.2019.2924849}{\nolinkurl{10.1109/lra.2019.2924849}}
+
+\bibitem{honig2019persistent}
+W.~H{\"o}nig, S.~Kiesel, A.~Tinka, J.~W. Durham, and N.~Ayanian, ``Persistent
+  and robust execution of {MAPF} schedules in warehouses,'' \emph{IEEE Robot.
+  Autom. Lett.}, vol.~4, no.~2, pp. 1125--1131, 2019. doi:
+  \href{https://doi.org/10.1109/lra.2019.2894217}{\nolinkurl{10.1109/lra.2019.2894217}}
+
+\bibitem{cap2015prioritized}
+M.~Cap, P.~Novak, A.~Kleiner, and M.~Selecky, ``Prioritized planning algorithms
+  for trajectory coordination of multiple mobile robots,'' \emph{IEEE Trans.
+  Autom. Sci. Eng.}, vol.~12, no.~3, pp. 835--849, 2015. doi:
+  \href{https://doi.org/10.1109/tase.2015.2445780}{\nolinkurl{10.1109/tase.2015.2445780}}
+
+\bibitem{draganjac2016decentralized}
+I.~Draganjac, D.~Miklic, Z.~Kovacic, G.~Vasiljevic, and S.~Bogdan,
+  ``Decentralized control of multi-{AGV} systems in autonomous warehousing
+  applications,'' \emph{IEEE Trans. Autom. Sci. Eng.}, vol.~13, no.~4, pp.
+  1433--1447, 2016. doi:
+  \href{https://doi.org/10.1109/tase.2016.2603781}{\nolinkurl{10.1109/tase.2016.2603781}}
+
+\bibitem{digani2015ensemble}
+V.~Digani, L.~Sabattini, C.~Secchi, and C.~Fantuzzi, ``Ensemble coordination
+  approach in multi-{AGV} systems applied to industrial warehouses,''
+  \emph{IEEE Trans. Autom. Sci. Eng.}, vol.~12, no.~3, pp. 922--934, 2015. doi:
+  \href{https://doi.org/10.1109/tase.2015.2446614}{\nolinkurl{10.1109/tase.2015.2446614}}
+
+\bibitem{proia2026decentralized}
+S.~Proia, G.~Cavone, M.~Calefati, L.~Mazzoccoli, R.~Carli, and M.~Dotoli,
+  ``Decentralized path planning with supervisory coordination for multi-{AGV}
+  systems in non-stationary environments,'' \emph{IEEE Trans. Autom. Sci.
+  Eng.}, vol.~23, pp. 13\,929--13\,949, 2026. doi:
+  \href{https://doi.org/10.1109/tase.2026.3718227}{\nolinkurl{10.1109/tase.2026.3718227}}
+
+\bibitem{zhou2017collision}
+Y.~Zhou, H.~Hu, Y.~Liu, and Z.~Ding, ``Collision and deadlock avoidance in
+  multirobot systems: A distributed approach,'' \emph{IEEE Trans. Syst., Man,
+  Cybern.: Syst.}, vol.~47, no.~7, pp. 1712--1726, 2017. doi:
+  \href{https://doi.org/10.1109/tsmc.2017.2670643}{\nolinkurl{10.1109/tsmc.2017.2670643}}
+
+\bibitem{vanduijkeren2023industrial}
+\BIBentryALTinterwordspacing
+N.~van Duijkeren, L.~Palmieri, R.~Lange, and A.~Kleiner, ``An industrial
+  perspective on multi-agent decision making for interoperable robot navigation
+  following the {VDA5050} standard,'' arXiv preprint arXiv:2311.14615, 2023.
+  [Online]. Available: \url{https://arxiv.org/abs/2311.14615}
+\BIBentrySTDinterwordspacing
+
+\bibitem{purwin2008theory}
+O.~Purwin, R.~D'Andrea, and J.-W. Lee, ``Theory and implementation of path
+  planning by negotiation for decentralized agents,'' \emph{Robot. Auton.
+  Syst.}, vol.~56, no.~5, pp. 422--436, 2008. doi:
+  \href{https://doi.org/10.1016/j.robot.2007.09.020}{\nolinkurl{10.1016/j.robot.2007.09.020}}
+
+\bibitem{bottleneckiv2023}
+M.~Baumann \emph{et~al.}, ``Cooperative automated driving for bottleneck
+  scenarios in mixed traffic,'' in \emph{Proc. IEEE Intell. Veh. Symp. (IV)},
+  2023, pp. 1--8. doi:
+  \href{https://doi.org/10.1109/iv55152.2023.10186638}{\nolinkurl{10.1109/iv55152.2023.10186638}}
+
+\bibitem{collin2020safety}
+A.~Collin, A.~Bilka, S.~Pendleton, and R.~D. Tebbens, ``Safety of the intended
+  driving behavior using rulebooks,'' in \emph{Proc. IEEE Intell. Veh. Symp.
+  (IV)}, 2020, pp. 136--143. doi:
+  \href{https://doi.org/10.1109/iv47402.2020.9304588}{\nolinkurl{10.1109/iv47402.2020.9304588}}
+
+\bibitem{rey2021online}
+D.~Rey, M.~W. Levin, and V.~V. Dixit, ``Online incentive-compatible mechanisms
+  for traffic intersection auctions,'' \emph{Eur. J. Oper. Res.}, vol. 293,
+  no.~1, pp. 229--247, 2021. doi:
+  \href{https://doi.org/10.1016/j.ejor.2020.12.030}{\nolinkurl{10.1016/j.ejor.2020.12.030}}
+
+\bibitem{dresner2008multiagent}
+K.~Dresner and P.~Stone, ``A multiagent approach to autonomous intersection
+  management,'' \emph{J. Artif. Intell. Res.}, vol.~31, pp. 591--656, 2008.
+  doi: \href{https://doi.org/10.1613/jair.2502}{\nolinkurl{10.1613/jair.2502}}
+
+\bibitem{nisan2001algorithmic}
+N.~Nisan and A.~Ronen, ``Algorithmic mechanism design,'' \emph{Games Econ.
+  Behav.}, vol.~35, no. 1--2, pp. 166--196, 2001. doi:
+  \href{https://doi.org/10.1006/game.1999.0790}{\nolinkurl{10.1006/game.1999.0790}}
+
+\bibitem{vickrey1961counterspeculation}
+W.~Vickrey, ``Counterspeculation, auctions, and competitive sealed tenders,''
+  \emph{J. Finance}, vol.~16, no.~1, pp. 8--37, 1961. doi:
+  \href{https://doi.org/10.1111/j.1540-6261.1961.tb02789.x}{\nolinkurl{10.1111/j.1540-6261.1961.tb02789.x}}
+
+\bibitem{clarke1971multipart}
+E.~H. Clarke, ``Multipart pricing of public goods,'' \emph{Public Choice},
+  vol.~11, no.~1, pp. 17--33, 1971. doi:
+  \href{https://doi.org/10.1007/BF01726210}{\nolinkurl{10.1007/BF01726210}}
+
+\bibitem{groves1973incentives}
+T.~Groves, ``Incentives in teams,'' \emph{Econometrica}, vol.~41, no.~4, pp.
+  617--631, 1973. doi:
+  \href{https://doi.org/10.2307/1914085}{\nolinkurl{10.2307/1914085}}
+
+\bibitem{green1977characterization}
+J.~Green and J.-J. Laffont, ``Characterization of satisfactory mechanisms for
+  the revelation of preferences for public goods,'' \emph{Econometrica},
+  vol.~45, no.~2, pp. 427--438, 1977. doi:
+  \href{https://doi.org/10.2307/1911219}{\nolinkurl{10.2307/1911219}}
+
+\bibitem{myerson1983efficient}
+R.~B. Myerson and M.~A. Satterthwaite, ``Efficient mechanisms for bilateral
+  trading,'' \emph{J. Econ. Theory}, vol.~29, no.~2, pp. 265--281, 1983. doi:
+  \href{https://doi.org/10.1016/0022-0531(83)90048-0}{\nolinkurl{10.1016/0022-0531(83)90048-0}}
+
+\bibitem{chandra2023socialmapf}
+R.~Chandra, R.~Maligi, A.~Anantula, and J.~Biswas, ``{SocialMAPF}: Optimal and
+  efficient multi-agent path finding with strategic agents for social
+  navigation,'' \emph{IEEE Robot. Autom. Lett.}, vol.~8, no.~6, pp. 3214--3221,
+  2023. doi:
+  \href{https://doi.org/10.1109/lra.2023.3265169}{\nolinkurl{10.1109/lra.2023.3265169}}
+
+\bibitem{elokda2025carma}
+E.~Elokda \emph{et~al.}, ``{CARMA}: Fair and efficient bottleneck congestion
+  management via nontradable karma credits,'' \emph{Transp. Sci.}, vol.~59,
+  no.~2, pp. 340--359, 2025. doi:
+  \href{https://doi.org/10.1287/trsc.2023.0323}{\nolinkurl{10.1287/trsc.2023.0323}}
+
+\bibitem{commfail2021}
+D.~Matos, P.~Costa, J.~Lima, and P.~Costa, ``Multi {AGV} coordination tolerant
+  to communication failures,'' \emph{Robotics}, vol.~10, no.~2, p.~55, 2021.
+  doi:
+  \href{https://doi.org/10.3390/robotics10020055}{\nolinkurl{10.3390/robotics10020055}}
+
+\bibitem{chen2017cadrl}
+Y.~F. Chen, M.~Liu, M.~Everett, and J.~P. How, ``Decentralized
+  non-communicating multiagent collision avoidance with deep reinforcement
+  learning,'' in \emph{Proc. IEEE Int. Conf. Robot. Autom. (ICRA)}, 2017, pp.
+  285--292. doi:
+  \href{https://doi.org/10.1109/icra.2017.7989037}{\nolinkurl{10.1109/icra.2017.7989037}}
+
+\bibitem{long2018towards}
+P.~Long, T.~Fan, X.~Liao, W.~Liu, H.~Zhang, and J.~Pan, ``Towards optimally
+  decentralized multi-robot collision avoidance via deep reinforcement
+  learning,'' in \emph{Proc. IEEE Int. Conf. Robot. Autom. (ICRA)}, 2018, pp.
+  6252--6259. doi:
+  \href{https://doi.org/10.1109/icra.2018.8461113}{\nolinkurl{10.1109/icra.2018.8461113}}
+
+\bibitem{fan2020distributed}
+T.~Fan, P.~Long, W.~Liu, and J.~Pan, ``Distributed multi-robot collision
+  avoidance via deep reinforcement learning for navigation in complex
+  scenarios,'' \emph{Int. J. Robot. Res.}, vol.~39, no.~7, pp. 856--892, 2020.
+  doi:
+  \href{https://doi.org/10.1177/0278364920916531}{\nolinkurl{10.1177/0278364920916531}}
+
+\bibitem{sartoretti2019primal}
+G.~Sartoretti \emph{et~al.}, ``{PRIMAL}: Pathfinding via reinforcement and
+  imitation multi-agent learning,'' \emph{IEEE Robot. Autom. Lett.}, vol.~4,
+  no.~3, pp. 2378--2385, 2019. doi:
+  \href{https://doi.org/10.1109/lra.2019.2903261}{\nolinkurl{10.1109/lra.2019.2903261}}
+
+\bibitem{li2020graph}
+Q.~Li, F.~Gama, A.~Ribeiro, and A.~Prorok, ``Graph neural networks for
+  decentralized multi-robot path planning,'' in \emph{Proc. IEEE/RSJ Int. Conf.
+  Intell. Robots Syst. (IROS)}, 2020, pp. 11\,785--11\,792. doi:
+  \href{https://doi.org/10.1109/iros45743.2020.9341668}{\nolinkurl{10.1109/iros45743.2020.9341668}}
+
+\bibitem{yu2022mappo}
+C.~Yu \emph{et~al.}, ``The surprising effectiveness of {PPO} in cooperative
+  multi-agent games,'' in \emph{Adv. Neural Inf. Process. Syst. (NeurIPS)},
+  2022, pp. 24\,611--24\,624. doi:
+  \href{https://doi.org/10.52202/068431-1787}{\nolinkurl{10.52202/068431-1787}}
+
+\bibitem{biswas2022socnavbench}
+A.~Biswas, A.~Wang, G.~Silvera, A.~Steinfeld, and H.~Admoni, ``{SocNavBench}: A
+  grounded simulation testing framework for evaluating social navigation,''
+  \emph{ACM Trans. Hum.-Robot Interact.}, vol.~11, no.~3, pp. 1--24, 2022. doi:
+  \href{https://doi.org/10.1145/3476413}{\nolinkurl{10.1145/3476413}}
 
 \bibitem{gazebosim}
 \BIBentryALTinterwordspacing
