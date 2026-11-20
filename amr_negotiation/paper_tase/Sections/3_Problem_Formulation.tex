@@ -1,0 +1,125 @@
+\section{Problem Formulation}\label{sec:problem}\label{sec:bench}
+
+\begin{figure*}[!t]
+\includegraphics[width=1\textwidth]{Images/problem_formulation.pdf}
+\caption{Physical and kinematic formulation of a narrow-corridor encounter. (a) Cross-sectional clearance constraint~\eqref{eq:width_constraint}: two robots of width $w_{\mathrm{rob}}=0.306$\,m with clearance $c_{\mathrm{clear}}=0.05$\,m require $0.712$\,m laterally and cannot pass side by side within corridor width $W=0.65$\,m unless yielder $Y$ parks at lateral offset $y_{\mathrm{park},r}$ inside refuge $r$. (b) Synchronized kinematic yield-maneuver timeline~\eqref{eq:geom}--\eqref{eq:timeline} showing hold point $x_{\mathrm{hold}}(r,P)$, clearance point $x_{\mathrm{pass}}(r,P)$, and phase synchronization instants $t_{\mathrm{park}}$, $t_{\mathrm{go}}$, and $t_{\mathrm{pass}}$.}
+\label{fig:formulation}
+\end{figure*}
+
+This paper considers a decentralized right-of-way resolution problem in which AMRs traverse a single-lane corridor that is physically too narrow for side-by-side passage. When two or more robots travel in opposing directions, at least one must temporarily vacate the main travel lane by maneuvering into a discrete off-lane refuge so that oncoming traffic can pass. Table~\ref{tab:nomenclature} summarizes the key notation used across the problem formulation and negotiation mechanisms, while fixed physical parameters are listed in Table~\ref{tab:params}.
+
+\begin{table}[!t]\centering
+\caption{Summary of Principal Mathematical Notation.}
+\label{tab:nomenclature}
+{\footnotesize\renewcommand{\arraystretch}{1.28}\setlength{\tabcolsep}{3.5pt}\medmuskip=2mu\thickmuskip=3mu
+\resizebox{\columnwidth}{!}{\begin{tabular}{@{}ll@{}}\toprule
+Symbol & Definition \\\midrule
+\multicolumn{2}{@{}l}{\emph{Sets, Indices, and Refuges}} \\\addlinespace[2pt]
+$i \in \{A, B\}$; $Y, P$ & Robot index; candidate yielder and proceeder \\
+$\mathcal{G}_Y, \mathcal{G}_P$ & Yielding and proceeding convoy robot groups \\
+$\mathcal{R},\, r \in \mathcal{R}$ & Discrete refuge set and individual refuge index \\
+$x_r, w_r, y_{\mathrm{park},r}$ & Refuge entry coordinate, width, and parking offset \\
+$\mathcal{F}(Y,P),\, r^\ast$ & Feasible refuge set for $(Y,P)$ and delay-optimal refuge \\\addlinespace[2pt]\midrule
+\multicolumn{2}{@{}l}{\emph{Robot State and Feasibility (Eqs.~\eqref{eq:width_constraint}--\eqref{eq:geom})}} \\\addlinespace[2pt]
+$x_i, v_i, s_i \in \{\pm 1\}$ & Longitudinal position, speed, and travel direction \\
+$x_{\mathrm{goal},i}, t_{\mathrm{enter},i}$ & Goal coordinate and corridor entry timestamp \\
+$u_i \ge 1,\, l_i \in \{0,1\}$ & Task urgency weight and binary payload flag \\
+$v_{\max,i}, v_{\mathrm{rev},i}, v_Y^{\mathrm{app}}$ & Forward, reverse, and refuge-approach speed limits \\
+$x_{\mathrm{stop}}, x_{\mathrm{hold}}, x_{\mathrm{pass}}$ & Proceeder braking, hold, and refuge-clearance lines \\\addlinespace[2pt]\midrule
+\multicolumn{2}{@{}l}{\emph{Maneuver Timeline and Delay (Eqs.~\eqref{eq:timeline}--\eqref{eq:social_obj})}} \\\addlinespace[2pt]
+$T_i^{\mathrm{free}}, t_{\mathrm{turn}}$ & Free-flow travel time and $90^\circ$ bay-turn duration \\
+$t_{\mathrm{park}}, t_{\mathrm{hold}}, t_{\mathrm{go}}, t_{\mathrm{pass}}$ & Park, hold-arrival, proceeder-release, and clearance times \\
+$T_i(r),\, d_i(r)$ & Total arrival time and encounter delay via refuge $r$ \\
+$C_{\mathrm{soc}}(Y,r)$ & Pairwise urgency-weighted social delay cost \\\addlinespace[2pt]\midrule
+\multicolumn{2}{@{}l}{\emph{Bidding, Incentives, and Evaluation (Eqs.~\eqref{eq:costbid}--\eqref{eq:excess})}} \\\addlinespace[2pt]
+$\tilde{c}_Y,\, \sigma,\, \epsilon_Y$ & Noisy social-cost bid, log-normal noise scale, and draw \\
+$C_{\mathrm{grp}}(\mathcal{G}_Y,\mathcal{G}_P)$ & Side-level convoy group-bidding social cost \\
+$o \in \{A,B\},\, o^\ast$ & Candidate yield outcome and mechanism-selected outcome \\
+$b_i(o),\, p_i$ & Reported delay cost for outcome $o$ and Clarke VCG payment \\
+$D_{i,t}^{\mathrm{cum}},\, \lambda$ & Cumulative delay through encounter $t$ and fairness weight \\
+$D_\pi^{(k)},\, \Delta_\pi$ & Episode delay on encounter $k$ and paired excess delay \\\bottomrule
+\end{tabular}}}
+\end{table}
+
+\subsection{Spatial Domain and Single-Lane Passing Constraint}
+The environment is a straight corridor of length $L$ and width $W$ centered along the $x$-axis ($y = 0$), connecting two open staging rooms at $x \le 0$ and $x \ge L$ (Fig.~\ref{fig:formulation}a). Distributed along the corridor walls and inside both end rooms is a discrete set of off-lane refuges $\mathcal{R}$ (pull-in bays and end-room parking zones). Each refuge $r \in \mathcal{R}$ is defined by its longitudinal entry coordinate $x_r$, opening width $w_r$, and lateral parking offset $y_{\mathrm{park},r}$ required to clear the main lane. 
+
+Each robot has chassis width $w_{\mathrm{rob}}$, rotational swept radius $R_{\mathrm{sw}}$, and required safety margin $c_{\mathrm{clear}}$ from walls and other robots. While inside the corridor, robots track the centerline $y = 0$. Side-by-side passing is physically impossible because the combined width of two robots and their safety margins exceeds the corridor width, such that
+
+\begin{equation}
+2\bigl(w_{\mathrm{rob}} + c_{\mathrm{clear}}\bigr) > W.
+\label{eq:width_constraint}
+\end{equation}
+Consequently, two opposing robots $A$ and $B$ cannot pass each other inside the corridor unless one robot pulls into a refuge $r \in \mathcal{R}$ while the other drives past $x_r$.
+
+\subsection{Robot State and Asymmetric Kinematics}
+Each robot $i \in \{A, B\}$ is characterized by its longitudinal position $x_i$, speed $v_i$, travel direction $s_i \in \{+1, -1\}$ (toward $+x$ or $-x$), and goal coordinate $x_{\mathrm{goal},i}$, along with three task attributes comprising corridor entry time $t_{\mathrm{enter},i}$, urgency weight $u_i \ge 1$, and binary payload flag $l_i \in \{0, 1\}$.
+Robots follow unicycle kinematics with maximum linear acceleration $a_{\max,i}$, maximum turn rate $\omega_{\max,i}$, and asymmetric forward and reverse speed limits satisfying
+
+\begin{equation}
+-v_{\mathrm{rev},i} \le v_i \le v_{\max,i}, \qquad 0 < v_{\mathrm{rev},i} < v_{\max,i}.
+\label{eq:speed_bounds}
+\end{equation}
+
+Because reversing is slower than driving forward ($v_{\mathrm{rev},i} < v_{\max,i}$) and entering or exiting a bay requires two $90^\circ$ turns, backing into a refuge behind a robot takes significantly longer than pulling into one ahead.
+
+\subsection{Refuge Feasibility Constraints}
+When two opposing robots $A$ and $B$ meet, a candidate resolution assigns one robot as the \emph{yielder} $Y \in \{A, B\}$, the other as the \emph{proceeder} $P$, and selects a target refuge $r \in \mathcal{R}$ for $Y$.
+For $P$ to pass safely while $Y$ is parked in refuge $r$, three longitudinal coordinates along the centerline govern the maneuver (Fig.~\ref{fig:formulation}a), namely, $P$'s minimum braking coordinate $x_{\mathrm{stop}}$, the hold line $x_{\mathrm{hold}}$ where $P$ must wait if $Y$ is not yet parked, and the clearance line $x_{\mathrm{pass}}$ where $P$ has fully passed the refuge, defined as
+
+\begin{equation}
+\begin{aligned}
+x_{\mathrm{stop}} &= x_P + s_P \frac{v_P^2}{2 a_{\max,P}}, \\
+x_{\mathrm{hold}} &= x_r - s_P \Bigl(\frac{w_r}{2} + R_{\mathrm{sw}} + c_{\mathrm{clear}}\Bigr), \\
+x_{\mathrm{pass}} &= x_r + s_P \Bigl(\frac{w_r}{2} + R_{\mathrm{sw}} + c_{\mathrm{clear}}\Bigr).
+\end{aligned}
+\label{eq:geom}
+\end{equation}
+
+A refuge $r \in \mathcal{R}$ belongs to the \emph{feasible refuge set} $\mathcal{F}(Y, P)$ if it is unobstructed and satisfies three conditions along each robot's travel direction, stated below.
+\begin{enumerate}
+\item \emph{Braking margin:} $P$ can stop before the hold line, $s_P(x_{\mathrm{hold}} - x_{\mathrm{stop}}) \ge 0$;
+\item \emph{Proceeder progression:} $P$'s goal lies beyond the clearance line, $s_P(x_{\mathrm{goal},P} - x_{\mathrm{pass}}) \ge 0$; and
+\item \emph{Yielder progression:} $Y$'s goal lies beyond the refuge entry, $s_Y(x_{\mathrm{goal},Y} - x_r) \ge 0$.
+\end{enumerate}
+
+\subsection{Maneuver Timeline and Delay Model}
+Without opposing traffic, robot $i$ cruises directly to its goal in free-flow time $T_i^{\mathrm{free}} = |x_{\mathrm{goal},i} - x_i| / v_{\max,i}$.
+When yielder $Y$ pulls into a feasible refuge $r \in \mathcal{F}(Y, P)$, the maneuver unfolds in four sequential stages (Fig.~\ref{fig:formulation}b), summarized below.
+\begin{enumerate}
+\item \emph{Yielder parks ($t_{\mathrm{park}}$):} $Y$ travels to $x_r$ at speed $v_Y^{\mathrm{app}}$ ($v_{\mathrm{rev},Y}$ if reversing, $v_{\max,Y}$ if driving forward), rotates $90^\circ$ in time $t_{\mathrm{turn}} = (\pi/2)/(0.8\,\omega_{\max,Y})$, and pulls into $y_{\mathrm{park},r}$.
+\item \emph{Proceeder holds ($t_{\mathrm{go}}$):} $P$ reaches the hold line at $t_{\mathrm{hold}} = |x_{\mathrm{hold}} - x_P| / v_{\max,P}$ and waits if $Y$ is not yet parked, departing at $t_{\mathrm{go}} = \max(t_{\mathrm{park}},\, t_{\mathrm{hold}})$.
+\item \emph{Proceeder passes ($t_{\mathrm{pass}}$):} $P$ drives past the refuge to clear $x_{\mathrm{pass}}$, then continues to $x_{\mathrm{goal},P}$.
+\item \emph{Yielder resumes ($T_Y$):} Once $P$ clears $x_{\mathrm{pass}}$, $Y$ reverses out of the bay, rotates $90^\circ$ back onto the centerline, and drives to $x_{\mathrm{goal},Y}$.
+\end{enumerate}
+The resulting milestone times ($t_{\mathrm{park}}, t_{\mathrm{pass}}$) and total arrival times ($T_Y, T_P$) are given by
+\begin{equation}
+\begin{aligned}
+t_{\mathrm{park}} &= \frac{|x_r - x_Y|}{v_Y^{\mathrm{app}}} + t_{\mathrm{turn}} + \frac{|y_{\mathrm{park},r}|}{v_{\max,Y}}, \\
+t_{\mathrm{pass}} &= \max(t_{\mathrm{park}},\, t_{\mathrm{hold}}) + \frac{|x_{\mathrm{pass}} - x_{\mathrm{hold}}|}{v_{\max,P}}, \\
+T_Y(r) &= t_{\mathrm{pass}} + \frac{|y_{\mathrm{park},r}|}{v_{\mathrm{rev},Y}} + t_{\mathrm{turn}} + \frac{|x_{\mathrm{goal},Y} - x_r|}{v_{\max,Y}}, \\
+T_P(r) &= t_{\mathrm{pass}} + \frac{|x_{\mathrm{goal},P} - x_{\mathrm{pass}}|}{v_{\max,P}}.
+\end{aligned}
+\label{eq:timeline}
+\end{equation}
+Each robot's predicted encounter delay is the extra time incurred above free flow, defined as
+\begin{equation}
+d_i(r) = T_i(r) - T_i^{\mathrm{free}}, \qquad i \in \{Y, P\},
+\label{eq:delay_def}
+\end{equation}
+and the optimal refuge for candidate yielder $Y$ is the feasible refuge that minimizes combined delay, $r^\ast(Y, P) = \arg\min_{r \in \mathcal{F}(Y, P)} [d_Y(r) + d_P(r)]$ (breaking ties by closest $|x_r - x_Y|$).
+
+\subsection{Optimization Objectives and Operational Constraints}
+Ideally, when two opposing robots $A$ and $B$ meet with full map knowledge and honest communication, the goal is to choose the yielder $Y \in \{A, B\}$ and feasible refuge $r \in \mathcal{F}(Y, P)$ that minimize total urgency-weighted delay according to
+\begin{equation}
+\min_{Y \in \{A, B\},\; r \in \mathcal{F}(Y, P)} \; C_{\mathrm{soc}}(Y, r) = u_Y d_Y(r) + u_P d_P(r).
+\label{eq:social_obj}
+\end{equation}
+
+In real warehouse deployments, however, solving~\eqref{eq:social_obj} without a central traffic controller faces four practical challenges that motivate the four research questions below.
+\begin{enumerate}
+\item Imperfect Information and Cost Noise (RQ1): Robots rarely know exact future travel times; they must decide using noisy delay predictions, simplified priority rules, or learned lookup policies that may not generalize to new corridor layouts.
+\item Self-Interested Bidding vs.\ Long-Run Fairness (RQ2): In multi-vendor fleets, a self-interested robot can exaggerate its delay cost to avoid yielding unless truth-telling is enforced via mechanism payments. Conversely, in a cooperative fleet across repeated encounters, static priority rules repeatedly delay the same robot, requiring a trade-off between single-encounter efficiency and cumulative fairness~\cite{jain1984fairness}.
+\item Lossy Communication and Incomplete Maps (RQ3): Robots negotiate over wireless links subject to packet drops and latency, and may only know a subset of refuges discovered within local sensor range or blocked by unmapped obstacles.
+\item Multi-Robot Coupling and 3D Physical Transfer (RQ4): Pairwise corridor negotiation must scale to three-robot encounters (convoys and T-junctions where a third robot can block a yielder) and transfer reliably from fast 2D kinematic models to 3D rigid-body physics and Lidar perception.
+\end{enumerate}
