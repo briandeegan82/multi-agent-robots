@@ -20,21 +20,39 @@ def _circle_points(x, y, r, n=24):
 
 
 class Bus:
-    """Broadcast channel with fixed latency, uniform jitter and independent per-receiver loss."""
+    """Broadcast channel with fixed latency, uniform jitter and per-receiver loss.
+
+    Loss is independent per message (`loss`) unless `burst` is given: a Gilbert–Elliott chain per receiver,
+    stepped once per message, with transition probabilities `p_gb` (good→bad) and `p_bg` (bad→good) and loss
+    probabilities `loss_good` / `loss_bad`. `blackout: [t0, t1]` drops every message sent in that window."""
 
     def __init__(self, comms: dict, rng: np.random.Generator):
         self.latency = comms.get("latency", 0.05)
         self.jitter = comms.get("jitter", 0.0)
         self.loss = comms.get("loss", 0.0)
+        self.burst = comms.get("burst")
+        self.blackout = comms.get("blackout")
+        self.bad: dict[str, bool] = {}
         self.rng = rng
         self.queue: list[tuple[float, str, dict]] = []
         self.sent = 0
         self.dropped = 0
 
+    def _lost(self, t, rcv) -> bool:
+        if self.blackout and self.blackout[0] <= t < self.blackout[1]:
+            return True
+        if not self.burst:
+            return self.rng.random() < self.loss
+        b = self.burst
+        bad = self.bad.get(rcv, False)
+        bad = self.rng.random() >= b["p_bg"] if bad else self.rng.random() < b["p_gb"]
+        self.bad[rcv] = bad
+        return self.rng.random() < (b.get("loss_bad", 1.0) if bad else b.get("loss_good", 0.0))
+
     def send(self, t, msg, receivers):
         for rcv in receivers:
             self.sent += 1
-            if self.rng.random() < self.loss:
+            if self._lost(t, rcv):
                 self.dropped += 1
                 continue
             self.queue.append((t + self.latency + self.jitter * self.rng.random(), rcv, msg))
