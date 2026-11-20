@@ -1,0 +1,80 @@
+key,value,source,method
+S1_baseline.reactive.excess_imputed,86.52,results_raw/S1_baseline.csv.gz,"total_delay - oracle, failures=180s/robot"
+S1_baseline.reactive.excess_success_only,70.54,results_raw/S1_baseline.csv.gz,"total_delay - oracle, successes"
+S1_baseline.reactive.success_rate,0.9381,results_raw/S1_baseline.csv.gz,success / episodes
+S1_baseline.fixed_priority.excess_imputed,6.45,results_raw/S1_baseline.csv.gz,"total_delay - oracle, failures=180s/robot"
+S1_baseline.fixed_priority.excess_success_only,6.45,results_raw/S1_baseline.csv.gz,"total_delay - oracle, successes"
+S1_baseline.fixed_priority.success_rate,1.0,results_raw/S1_baseline.csv.gz,success / episodes
+S1_baseline.rules_default.excess_imputed,6.45,results_raw/S1_baseline.csv.gz,"total_delay - oracle, failures=180s/robot"
+S1_baseline.rules_default.excess_success_only,6.45,results_raw/S1_baseline.csv.gz,"total_delay - oracle, successes"
+S1_baseline.rules_default.success_rate,1.0,results_raw/S1_baseline.csv.gz,success / episodes
+S1_baseline.rules_proximity.excess_imputed,3.14,results_raw/S1_baseline.csv.gz,"total_delay - oracle, failures=180s/robot"
+S1_baseline.rules_proximity.excess_success_only,3.14,results_raw/S1_baseline.csv.gz,"total_delay - oracle, successes"
+S1_baseline.rules_proximity.success_rate,1.0,results_raw/S1_baseline.csv.gz,success / episodes
+S1_baseline.cost_bid.excess_imputed,0.0,results_raw/S1_baseline.csv.gz,"total_delay - oracle, failures=180s/robot"
+S1_baseline.cost_bid.excess_success_only,0.0,results_raw/S1_baseline.csv.gz,"total_delay - oracle, successes"
+S1_baseline.cost_bid.success_rate,1.0,results_raw/S1_baseline.csv.gz,success / episodes
+S1.reactive.deadlock_rate,0.0619,results_raw/S1_baseline.csv.gz,deadlock / episodes
+S1.reactive_over_fixed.delay_ratio_success,2.92,results_raw/S1_baseline.csv.gz,mean ratio
+S1.reactive_over_fixed.delay_ratio_imputed,3.41,results_raw/S1_baseline.csv.gz,"mean ratio, deadlock=360 s"
+S2_asymmetry.reactive.excess_imputed,110.84,results_raw/S2_asymmetry.csv.gz,"wdelay - oracle_w, failures=180s/robot"
+S2_asymmetry.reactive.excess_success_only,91.88,results_raw/S2_asymmetry.csv.gz,"wdelay - oracle_w, successes"
+S2_asymmetry.reactive.success_rate,0.9167,results_raw/S2_asymmetry.csv.gz,success / episodes
+S2_asymmetry.fixed_priority.excess_imputed,27.08,results_raw/S2_asymmetry.csv.gz,"wdelay - oracle_w, failures=180s/robot"
+S2_asymmetry.fixed_priority.excess_success_only,27.08,results_raw/S2_asymmetry.csv.gz,"wdelay - oracle_w, successes"
+S2_asymmetry.fixed_priority.success_rate,1.0,results_raw/S2_asymmetry.csv.gz,success / episodes
+S2_asymmetry.rules_default.excess_imputed,3.53,results_raw/S2_asymmetry.csv.gz,"wdelay - oracle_w, failures=180s/robot"
+S2_asymmetry.rules_default.excess_success_only,3.53,results_raw/S2_asymmetry.csv.gz,"wdelay - oracle_w, successes"
+S2_asymmetry.rules_default.success_rate,1.0,results_raw/S2_asymmetry.csv.gz,success / episodes
+S2_asymmetry.rules_proximity.excess_imputed,3.56,results_raw/S2_asymmetry.csv.gz,"wdelay - oracle_w, failures=180s/robot"
+S2_asymmetry.rules_proximity.excess_success_only,3.56,results_raw/S2_asymmetry.csv.gz,"wdelay - oracle_w, successes"
+S2_asymmetry.rules_proximity.success_rate,1.0,results_raw/S2_asymmetry.csv.gz,success / episodes
+S2_asymmetry.cost_bid.excess_imputed,0.04,results_raw/S2_asymmetry.csv.gz,"wdelay - oracle_w, failures=180s/robot"
+S2_asymmetry.cost_bid.excess_success_only,0.04,results_raw/S2_asymmetry.csv.gz,"wdelay - oracle_w, successes"
+S2_asymmetry.cost_bid.success_rate,1.0,results_raw/S2_asymmetry.csv.gz,success / episodes
+S4_two_bays.reactive.excess_imputed,72.0,results_raw/S4_two_bays.csv.gz,"total_delay - oracle, failures=180s/robot"
+S4_two_bays.reactive.excess_success_only,66.11,results_raw/S4_two_bays.csv.gz,"total_delay - oracle, successes"
+S4_two_bays.reactive.success_rate,0.9778,results_raw/S4_two_bays.csv.gz,success / episodes
+S4_two_bays.fixed_priority.excess_imputed,1.1,results_raw/S4_two_bays.csv.gz,"total_delay - oracle, failures=180s/robot"
+S4_two_bays.fixed_priority.excess_success_only,1.1,results_raw/S4_two_bays.csv.gz,"total_delay - oracle, successes"
+S4_two_bays.fixed_priority.success_rate,1.0,results_raw/S4_two_bays.csv.gz,success / episodes
+S4_two_bays.rules_default.excess_imputed,1.24,results_raw/S4_two_bays.csv.gz,"total_delay - oracle, failures=180s/robot"
+S4_two_bays.rules_default.excess_success_only,1.24,results_raw/S4_two_bays.csv.gz,"total_delay - oracle, successes"
+S4_two_bays.rules_default.success_rate,1.0,results_raw/S4_two_bays.csv.gz,success / episodes
+S4_two_bays.rules_proximity.excess_imputed,5.61,results_raw/S4_two_bays.csv.gz,"total_delay - oracle, failures=180s/robot"
+S4_two_bays.rules_proximity.excess_success_only,5.61,results_raw/S4_two_bays.csv.gz,"total_delay - oracle, successes"
+S4_two_bays.rules_proximity.success_rate,1.0,results_raw/S4_two_bays.csv.gz,success / episodes
+S4_two_bays.cost_bid.excess_imputed,0.0,results_raw/S4_two_bays.csv.gz,"total_delay - oracle, failures=180s/robot"
+S4_two_bays.cost_bid.excess_success_only,0.0,results_raw/S4_two_bays.csv.gz,"total_delay - oracle, successes"
+S4_two_bays.cost_bid.success_rate,1.0,results_raw/S4_two_bays.csv.gz,success / episodes
+S7.sigma0.0.cost_bid.excess,0.0,results_raw/S7_noisy_bids.csv.gz,total_delay - oracle
+S7.sigma0.0.cost_minus_prox,-3.15,results_raw/S7_noisy_bids.csv.gz,paired per draw
+S7.sigma0.1.cost_bid.excess,0.15,results_raw/S7_noisy_bids.csv.gz,total_delay - oracle
+S7.sigma0.1.cost_minus_prox,-3.0,results_raw/S7_noisy_bids.csv.gz,paired per draw
+S7.sigma0.25.cost_bid.excess,1.45,results_raw/S7_noisy_bids.csv.gz,total_delay - oracle
+S7.sigma0.25.cost_minus_prox,-1.7,results_raw/S7_noisy_bids.csv.gz,paired per draw
+S7.sigma0.5.cost_bid.excess,3.3,results_raw/S7_noisy_bids.csv.gz,total_delay - oracle
+S7.sigma0.5.cost_minus_prox,0.15,results_raw/S7_noisy_bids.csv.gz,paired per draw
+S7.sigma1.0.cost_bid.excess,4.48,results_raw/S7_noisy_bids.csv.gz,total_delay - oracle
+S7.sigma1.0.cost_minus_prox,1.33,results_raw/S7_noisy_bids.csv.gz,paired per draw
+S1_baseline.cost_bid-fixed_priority,-6.45,tase_stats.md,"paired, Holm p=2.56e-61, different"
+S1_baseline.reactive-fixed_priority,80.07,tase_stats.md,"paired, Holm p=1.82e-67, different"
+S1_baseline.rules_default-fixed_priority,0.0,tase_stats.md,"paired, Holm p=1, equivalent (±0.5 s)"
+S1_baseline.rules_proximity-cost_bid,3.14,tase_stats.md,"paired, Holm p=3.74e-26, different"
+S1_baseline.rules_proximity-fixed_priority,-3.3,tase_stats.md,"paired, Holm p=3.21e-26, different"
+S2_asymmetry.cost_bid-fixed_priority,-27.05,tase_stats.md,"paired, Holm p=5.86e-72, different"
+S2_asymmetry.reactive-fixed_priority,83.76,tase_stats.md,"paired, Holm p=1.2e-88, different"
+S2_asymmetry.rules_default-fixed_priority,-23.56,tase_stats.md,"paired, Holm p=3.32e-51, different"
+S2_asymmetry.rules_proximity-cost_bid,3.52,tase_stats.md,"paired, Holm p=1.68e-50, different"
+S2_asymmetry.rules_proximity-fixed_priority,-23.53,tase_stats.md,"paired, Holm p=1.51e-50, different"
+S4_two_bays.cost_bid-fixed_priority,-1.1,tase_stats.md,"paired, Holm p=2.07e-11, different"
+S4_two_bays.reactive-fixed_priority,70.9,tase_stats.md,"paired, Holm p=1.02e-68, different"
+S4_two_bays.rules_default-fixed_priority,0.14,tase_stats.md,"paired, Holm p=0.128, equivalent (±0.5 s)"
+S4_two_bays.rules_proximity-cost_bid,5.61,tase_stats.md,"paired, Holm p=2.02e-64, different"
+S4_two_bays.rules_proximity-fixed_priority,4.51,tase_stats.md,"paired, Holm p=3.86e-45, different"
+S7 σ=0.0.cost_bid-rules_proximity,-3.15,tase_stats.md,"paired, Holm p=2.28e-13, different"
+S7 σ=0.1.cost_bid-rules_proximity,-3.0,tase_stats.md,"paired, Holm p=1.06e-11, different"
+S7 σ=0.25.cost_bid-rules_proximity,-1.7,tase_stats.md,"paired, Holm p=0.003, different"
+S7 σ=0.5.cost_bid-rules_proximity,0.15,tase_stats.md,"paired, Holm p=1, inconclusive"
+S7 σ=1.0.cost_bid-rules_proximity,1.33,tase_stats.md,"paired, Holm p=0.128, inconclusive"
+episodes.total_rows,49088.0,results_raw/*.csv.gz,sum of rows
