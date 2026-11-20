@@ -90,7 +90,6 @@ class Scenario:
     room_width: float = 2.5
     bays: list[dict] = field(default_factory=lambda: [{"x": 4.0, "side": 1, "width": 0.8, "depth": 0.6}])
     room_refuges: bool = True
-    room_park_offset: float | None = None  # m from the corridor mouth to the room parking spot (None: closest)
     blocked_bays: list[str] = field(default_factory=list)  # bays on every map but physically obstructed (pallet, closed off)
     agent_params: dict = field(default_factory=dict)  # AgentParams defaults for every robot (e.g. explore); a policy's agent_params override them
     despawn_done: bool = False  # robots that reach their goal leave the world (convoys: a parked finisher would block the lane)
@@ -146,11 +145,10 @@ class Scenario:
             park = hw + b["depth"] - r - c
             out.append(Refuge(f"bay{i}", b["x"], int(b["side"]), b["side"] * park, b["width"], "bay"))
         if self.room_refuges:
-            off = self.room_park_offset if self.room_park_offset is not None else r + 2 * c + 0.3
+            off = r + 2 * c + 0.3
             park = hw + 2 * r + 2 * c
-            span = 2 * (r + 2 * c + 0.3)
-            out.append(Refuge("room_lo", -off, 1, park, span, "room"))
-            out.append(Refuge("room_hi", self.length + off, 1, park, span, "room"))
+            out.append(Refuge("room_lo", -off, 1, park, 2 * off, "room"))
+            out.append(Refuge("room_hi", self.length + off, 1, park, 2 * off, "room"))
         return out
 
     def start_pose(self, a: AgentConfig) -> tuple[float, float, float]:
