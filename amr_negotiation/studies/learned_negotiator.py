@@ -3,13 +3,15 @@
 For each random training encounter we record the shared observation (`learned_features`) at decision time,
 run both forced outcomes (a yields / b yields) and accumulate the urgency-weighted delay of each. Execution is
 decentralised: each robot looks the observation up in the same table. Run from amr_negotiation/:
-python studies/learned_negotiator.py  ->  report/learned_negotiator.md, report/learned_table.json"""
+python studies/learned_negotiator.py  ->  report/learned_negotiator.md, report/learned_table.json,
+results_raw/learned_eval.csv.gz (weighted delay per evaluation episode; failures charged FAIL s)"""
 import json
 import multiprocessing as mp
 from collections import defaultdict
 from pathlib import Path
 
 import numpy as np
+import pandas as pd
 
 from amr_negotiation import sim2d
 from amr_negotiation import sweep as SW
@@ -81,12 +83,14 @@ if __name__ == "__main__":
     out = ROOT / "studies" / "report"
     with mp.Pool(8) as pool:
         samples = pool.map(train_one, range(800))
+        rows = []
         md = ["| train encounters | eval layout | policy | mean weighted delay (s) | regret vs oracle_w (s) | failures | fallback rate |",
               "|---|---|---|---|---|---|---|"]
         for n in (50, 200, 800):
             table = build(samples[:n])
             for layout in ("two_bays", "single_bay"):
                 res = pool.map(evaluate, [(10_000 + s, layout, table) for s in range(150)])
+                rows += [{"n_train": n, "layout": layout, "seed": 10_000 + s, **r} for s, r in enumerate(res)]
                 orc = np.array([r["oracle_w"] for r in res])
                 for k in ("fixed_priority", "rules_default", "cost_bid", "learned", "oracle_w"):
                     if n != 800 and k != "learned":
@@ -95,6 +99,7 @@ if __name__ == "__main__":
                     fb = f"{np.mean([r['fallback'] for r in res]):.0%}" if k == "learned" else ""
                     md.append(f"| {n} | {layout} | {k} | {v.mean():.1f} ± {1.96 * v.std(ddof=1) / len(v) ** 0.5:.1f} | "
                               f"{(v - orc).mean():+.1f} | {int((v >= FAIL).sum())} | {fb} |")
+        pd.DataFrame(rows).to_csv(ROOT / "studies/results_raw/learned_eval.csv.gz", index=False)
         (out / "learned_table.json").write_text(json.dumps(build(samples), indent=1, sort_keys=True))
     md.append(f"\nTable states: {len(build(samples))}; training samples with a decision: {sum(s is not None for s in samples)}/800")
     (out / "learned_negotiator.md").write_text("\n".join(md) + "\n")

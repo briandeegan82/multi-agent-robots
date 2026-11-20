@@ -75,6 +75,14 @@ def job(args):
                'min_clearance': res.get('min_clearance'), 'wall_hits': res.get('wall_hits')}
     for i in ids:
         row[f'delay_{i}'] = d[i]; row[f'reverse_{i}'] = ag[i]['reverse_dist']
+    dec = res['decisions']
+    row['n_decisions'] = len(dec)
+    first = dec[0] if dec else {}
+    for i, b in (first.get('bids') or {}).items():
+        row[f'bid_{i}'] = b
+    plan = first.get('predicted')
+    if plan:
+        row['pred_yielder_delay'], row['pred_proceeder_delay'] = plan['yielder_delay'], plan['proceeder_delay']
     row.update(assign)
     return row
 
