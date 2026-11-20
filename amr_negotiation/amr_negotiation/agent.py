@@ -76,7 +76,7 @@ class Agent:
         self.v_max = cfg.v_max or sc.robot.v_max
         self.v_rev = cfg.v_rev_max or sc.robot.v_rev_max
         self.r = sc.robot.radius
-        self.comms = policy["name"] != "reactive" and policy.get("comms", True)
+        self.comms = policy["name"] not in ("reactive", "backoff") and policy.get("comms", True)
         self.initial_mode = "CRUISE"
         self.mode = "WAIT_START" if cfg.start_delay > 0 else "CRUISE"
         self.phase = ""
@@ -92,7 +92,8 @@ class Agent:
             if cfg.start_delay <= 0:
                 self.mode = "YIELD"
         self.prc: dict | None = None
-        self.fallback_reactive = policy["name"] == "reactive"
+        self.fallback_reactive = policy["name"] in ("reactive", "backoff")
+        self.n_backoff = 0  # `backoff`: reactive yields so far; the patience window doubles after each
         self.blocked: dict | None = None
         self.no_neg_until: dict[str, float] = {}
         self.reactive_until: float | None = None
@@ -522,7 +523,12 @@ class Agent:
             return False
         g = self.gap(pose, perc.points, 1)
         if self.blocked is None:
-            self.blocked = {"t0": t, "gap": g, "patience": float(self.rng.uniform(*self.p.patience))}
+            if self.policy["name"] == "backoff":  # randomized exponential backoff: U[0, base * 2^k]
+                hi = self.policy.get("base", self.p.patience[1]) * 2 ** min(self.n_backoff, 5)
+                pat = float(self.rng.uniform(0.0, hi))
+            else:
+                pat = float(self.rng.uniform(*self.p.patience))
+            self.blocked = {"t0": t, "gap": g, "patience": pat}
             return False
         if g > self.blocked["gap"] + 0.05:
             self.blocked = None
@@ -537,6 +543,7 @@ class Agent:
             return False
         ref = min(behind, key=lambda r: abs(r.x - x))
         self.blocked = None
+        self.n_backoff += 1
         self.begin_yield(t, ref, peer=None, rule="reactive")
         return True
 

@@ -19,7 +19,7 @@ from .geometry import Scenario
 from .planner import Snapshot, best_plan, feasible, plan_times, refuge_by_id
 
 NEGOTIATING_POLICIES = ("fixed_priority", "rule_based", "cost_bid", "group_bid", "learned", "clarke", "reservation", "forced", "llm")
-ALL_POLICIES = ("reactive",) + NEGOTIATING_POLICIES
+ALL_POLICIES = ("reactive", "backoff") + NEGOTIATING_POLICIES
 
 
 @dataclass
