@@ -5,13 +5,14 @@ Every Gazebo run is paired with a 2D rerun of the same scenario file, policy and
 Delay = Σ urgency × (arrival − 2D free-flow arrival); the same free-flow reference is used for both simulators.
 Agreement = same success flag and same first yielder (None == None counts as agreement), over negotiating
 policies (reactive and forced references excluded).
-The `main@bf24bf4` batch (122 runs, older code) is reported separately from `all@2ba4c6d`.
+Default input: the 338 `all@2ba4c6d` runs plus the 122 original main cases rerun on `a276da6` (arm64 image,
+`main@a276da6`). The superseded `main@bf24bf4` runs stay in `gazebo_current.jsonl.gz`; see `compare_gazebo_rerun.py`.
 
 460 of 460 Gazebo runs paired.
 
 ## All runs
 
-Negotiating runs: agreement 394/406 = 97.0% (Wilson 95% [94.9, 98.3]); collisions 0/406. Bland–Altman over 459 runs successful in both: bias -1.31 s, limits of agreement [-28.69, +26.07] s.
+Negotiating runs: agreement 394/406 = 97.0% (Wilson 95% [94.9, 98.3]); collisions 0/406. Bland–Altman over 456 runs successful in both: bias -1.35 s, limits of agreement [-27.57, +24.87] s.
 
 | group | policy | n | Gazebo success | 2D success | agree | delay Gazebo − 2D, mean [95% CI] (s) |
 |---|---|---|---|---|---|---|
@@ -49,20 +50,20 @@ Negotiating runs: agreement 394/406 = 97.0% (Wilson 95% [94.9, 98.3]); collision
 | asym_own | `fixed_priority` | 6 | 6 | 6 | 6/6 | -0.46 [-0.50, -0.41] |
 | asym_share | `cost_bid` | 6 | 6 | 6 | 6/6 | -0.22 [-0.24, -0.18] |
 | asym_share | `fixed_priority` | 6 | 6 | 6 | 6/6 | -0.22 [-0.28, -0.17] |
-| comms | `cost_bid` | 6 | 6 | 6 | 6/6 | -0.74 [-1.81, +0.20] |
-| comms | `fixed_priority` | 6 | 6 | 6 | 6/6 | -0.84 [-2.66, +0.83] |
-| comms | `rules_default` | 6 | 6 | 6 | 6/6 | -0.91 [-1.86, -0.17] |
-| convoy | `cost_bid` | 6 | 6 | 6 | 6/6 | -0.27 [-0.31, -0.23] |
-| convoy | `fixed_priority` | 6 | 6 | 6 | 6/6 | -0.26 [-0.33, -0.18] |
+| comms | `cost_bid` | 6 | 6 | 6 | 6/6 | -0.49 [-1.52, +0.37] |
+| comms | `fixed_priority` | 6 | 6 | 6 | 6/6 | -0.49 [-1.80, +0.79] |
+| comms | `rules_default` | 6 | 6 | 6 | 6/6 | -0.50 [-1.77, +0.77] |
+| convoy | `cost_bid` | 6 | 6 | 6 | 6/6 | -0.23 [-0.27, -0.19] |
+| convoy | `fixed_priority` | 6 | 6 | 6 | 6/6 | -0.24 [-0.27, -0.21] |
 | convoy | `group_bid` | 6 | 6 | 6 | 6/6 | -0.28 [-0.34, -0.23] |
-| convoy | `rules_default` | 6 | 6 | 6 | 6/6 | -0.23 [-0.28, -0.18] |
+| convoy | `rules_default` | 6 | 6 | 6 | 6/6 | -0.23 [-0.27, -0.19] |
 | convoy_B_urgent | `fixed_priority` | 6 | 6 | 6 | 6/6 | -1.17 [-1.30, -1.03] |
 | convoy_B_urgent | `group_bid` | 6 | 6 | 6 | 6/6 | -1.13 [-1.17, -1.07] |
-| corridor | `cost_bid` | 10 | 10 | 10 | 10/10 | -0.40 [-0.48, -0.33] |
-| corridor | `fixed_priority` | 10 | 10 | 10 | 10/10 | -0.41 [-0.49, -0.33] |
-| corridor | `reactive` | 10 | 9 | 10 | 5/10 | -1.46 [-47.66, +35.09] |
-| corridor | `rules_default` | 10 | 10 | 10 | 10/10 | -0.44 [-0.55, -0.33] |
-| corridor | `rules_proximity` | 10 | 10 | 10 | 10/10 | -0.36 [-0.49, -0.25] |
+| corridor | `cost_bid` | 10 | 10 | 10 | 10/10 | -0.27 [-0.33, -0.21] |
+| corridor | `fixed_priority` | 10 | 10 | 10 | 10/10 | -0.35 [-0.43, -0.27] |
+| corridor | `reactive` | 10 | 6 | 10 | 3/10 | -6.62 [-65.22, +39.98] |
+| corridor | `rules_default` | 10 | 10 | 10 | 10/10 | -0.36 [-0.44, -0.28] |
+| corridor | `rules_proximity` | 10 | 10 | 10 | 10/10 | -0.35 [-0.44, -0.27] |
 | explore_all_3.5 | `cost_bid` | 6 | 6 | 6 | 6/6 | -0.16 [-0.25, -0.07] |
 | explore_all_3.5 | `fixed_priority` | 6 | 6 | 6 | 6/6 | -0.18 [-0.22, -0.14] |
 | explore_all_6.0 | `cost_bid` | 6 | 6 | 6 | 6/6 | -0.20 [-0.26, -0.12] |
@@ -77,12 +78,12 @@ Negotiating runs: agreement 394/406 = 97.0% (Wilson 95% [94.9, 98.3]); collision
 | explore_none_3.5 | `fixed_priority` | 6 | 6 | 6 | 6/6 | -0.66 [-1.31, -0.27] |
 | explore_none_6.0 | `cost_bid` | 6 | 6 | 6 | 6/6 | -0.37 [-0.41, -0.32] |
 | explore_none_6.0 | `fixed_priority` | 6 | 6 | 6 | 6/6 | -0.41 [-0.46, -0.38] |
-| tj | `cost_bid` | 6 | 6 | 6 | 6/6 | -44.11 [-86.32, -22.86] |
-| tj | `fixed_priority` | 6 | 6 | 6 | 6/6 | +3.10 [+0.95, +5.20] |
-| tj | `rules_default` | 6 | 6 | 6 | 6/6 | -2.33 [-11.17, +3.54] |
-| tjgoal | `cost_bid` | 6 | 6 | 6 | 6/6 | -10.98 [-11.32, -10.60] |
-| tjgoal | `fixed_priority` | 6 | 6 | 6 | 6/6 | -23.11 [-27.61, -17.34] |
-| tjgoal | `rules_default` | 6 | 6 | 6 | 6/6 | -23.47 [-27.63, -18.05] |
+| tj | `cost_bid` | 6 | 6 | 6 | 6/6 | -44.15 [-86.50, -22.81] |
+| tj | `fixed_priority` | 6 | 6 | 6 | 6/6 | +2.97 [+0.65, +5.18] |
+| tj | `rules_default` | 6 | 6 | 6 | 6/6 | -1.76 [-11.07, +4.17] |
+| tjgoal | `cost_bid` | 6 | 6 | 6 | 6/6 | -11.13 [-11.38, -10.92] |
+| tjgoal | `fixed_priority` | 6 | 6 | 6 | 6/6 | -23.02 [-27.50, -17.32] |
+| tjgoal | `rules_default` | 6 | 6 | 6 | 6/6 | -23.41 [-27.49, -18.09] |
 | wrong_map | `cost_bid` | 6 | 6 | 6 | 6/6 | -1.14 [-1.26, -1.05] |
 | wrong_map | `fixed_priority` | 6 | 6 | 6 | 6/6 | -1.21 [-1.31, -1.11] |
 | wrong_map | `rules_default` | 6 | 6 | 6 | 6/6 | -1.26 [-1.36, -1.14] |
@@ -148,26 +149,26 @@ Negotiating runs: agreement 282/294 = 95.9% (Wilson 95% [93.0, 97.6]); collision
 | wrong_map | `fixed_priority` | 6 | 6 | 6 | 6/6 | -1.21 [-1.31, -1.11] |
 | wrong_map | `rules_default` | 6 | 6 | 6 | 6/6 | -1.26 [-1.36, -1.14] |
 
-## Batch `main@bf24bf4`
+## Batch `main@a276da6`
 
-Negotiating runs: agreement 112/112 = 100.0% (Wilson 95% [96.7, 100.0]); collisions 0/112. Bland–Altman over 121 runs successful in both: bias -5.41 s, limits of agreement [-51.13, +40.31] s.
+Negotiating runs: agreement 112/112 = 100.0% (Wilson 95% [96.7, 100.0]); collisions 0/112. Bland–Altman over 118 runs successful in both: bias -5.67 s, limits of agreement [-48.98, +37.64] s.
 
 | group | policy | n | Gazebo success | 2D success | agree | delay Gazebo − 2D, mean [95% CI] (s) |
 |---|---|---|---|---|---|---|
-| comms | `cost_bid` | 6 | 6 | 6 | 6/6 | -0.74 [-1.81, +0.20] |
-| comms | `fixed_priority` | 6 | 6 | 6 | 6/6 | -0.84 [-2.66, +0.83] |
-| comms | `rules_default` | 6 | 6 | 6 | 6/6 | -0.91 [-1.86, -0.17] |
-| convoy | `cost_bid` | 6 | 6 | 6 | 6/6 | -0.27 [-0.31, -0.23] |
-| convoy | `fixed_priority` | 6 | 6 | 6 | 6/6 | -0.26 [-0.33, -0.18] |
-| convoy | `rules_default` | 6 | 6 | 6 | 6/6 | -0.23 [-0.28, -0.18] |
-| corridor | `cost_bid` | 10 | 10 | 10 | 10/10 | -0.40 [-0.48, -0.33] |
-| corridor | `fixed_priority` | 10 | 10 | 10 | 10/10 | -0.41 [-0.49, -0.33] |
-| corridor | `reactive` | 10 | 9 | 10 | 5/10 | -1.46 [-47.66, +35.09] |
-| corridor | `rules_default` | 10 | 10 | 10 | 10/10 | -0.44 [-0.55, -0.33] |
-| corridor | `rules_proximity` | 10 | 10 | 10 | 10/10 | -0.36 [-0.49, -0.25] |
-| tj | `cost_bid` | 6 | 6 | 6 | 6/6 | -44.11 [-86.32, -22.86] |
-| tj | `fixed_priority` | 6 | 6 | 6 | 6/6 | +3.10 [+0.95, +5.20] |
-| tj | `rules_default` | 6 | 6 | 6 | 6/6 | -2.33 [-11.17, +3.54] |
-| tjgoal | `cost_bid` | 6 | 6 | 6 | 6/6 | -10.98 [-11.32, -10.60] |
-| tjgoal | `fixed_priority` | 6 | 6 | 6 | 6/6 | -23.11 [-27.61, -17.34] |
-| tjgoal | `rules_default` | 6 | 6 | 6 | 6/6 | -23.47 [-27.63, -18.05] |
+| comms | `cost_bid` | 6 | 6 | 6 | 6/6 | -0.49 [-1.52, +0.37] |
+| comms | `fixed_priority` | 6 | 6 | 6 | 6/6 | -0.49 [-1.80, +0.79] |
+| comms | `rules_default` | 6 | 6 | 6 | 6/6 | -0.50 [-1.77, +0.77] |
+| convoy | `cost_bid` | 6 | 6 | 6 | 6/6 | -0.23 [-0.27, -0.19] |
+| convoy | `fixed_priority` | 6 | 6 | 6 | 6/6 | -0.24 [-0.27, -0.21] |
+| convoy | `rules_default` | 6 | 6 | 6 | 6/6 | -0.23 [-0.27, -0.19] |
+| corridor | `cost_bid` | 10 | 10 | 10 | 10/10 | -0.27 [-0.33, -0.21] |
+| corridor | `fixed_priority` | 10 | 10 | 10 | 10/10 | -0.35 [-0.43, -0.27] |
+| corridor | `reactive` | 10 | 6 | 10 | 3/10 | -6.62 [-65.22, +39.98] |
+| corridor | `rules_default` | 10 | 10 | 10 | 10/10 | -0.36 [-0.44, -0.28] |
+| corridor | `rules_proximity` | 10 | 10 | 10 | 10/10 | -0.35 [-0.44, -0.27] |
+| tj | `cost_bid` | 6 | 6 | 6 | 6/6 | -44.15 [-86.50, -22.81] |
+| tj | `fixed_priority` | 6 | 6 | 6 | 6/6 | +2.97 [+0.65, +5.18] |
+| tj | `rules_default` | 6 | 6 | 6 | 6/6 | -1.76 [-11.07, +4.17] |
+| tjgoal | `cost_bid` | 6 | 6 | 6 | 6/6 | -11.13 [-11.38, -10.92] |
+| tjgoal | `fixed_priority` | 6 | 6 | 6 | 6/6 | -23.02 [-27.50, -17.32] |
+| tjgoal | `rules_default` | 6 | 6 | 6 | 6/6 | -23.41 [-27.49, -18.09] |

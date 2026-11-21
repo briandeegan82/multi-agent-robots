@@ -1,13 +1,14 @@
 """Gazebo vs 2D agreement with per-condition paired CIs and a Bland–Altman plot (T-ASE revision WP8).
 
-    python studies/analyse_gazebo_tase.py [GZ_JSONL] [REPORT_DIR]
-        # default results_raw/gazebo_current.jsonl.gz, report_r2/ -> gazebo_tase.md, gazebo_tase_runs.csv.gz,
+    python studies/analyse_gazebo_tase.py [GZ_JSONL[,GZ_JSONL...]] [REPORT_DIR]
+        # default results_raw/gazebo_tase.jsonl.gz, report_r2/ -> gazebo_tase.md, gazebo_tase_runs.csv.gz,
         #   fig/gazebo_bland_altman.png
 Every Gazebo run is paired with a 2D rerun of the same scenario file, policy and seed on the current checkout.
 Delay = Σ urgency × (arrival − 2D free-flow arrival); the same free-flow reference is used for both simulators.
 Agreement = same success flag and same first yielder (None == None counts as agreement), over negotiating
 policies (reactive and forced references excluded).
-The `main@bf24bf4` batch (122 runs, older code) is reported separately from `all@2ba4c6d`.
+Default input: the 338 `all@2ba4c6d` runs plus the 122 original main cases rerun on `a276da6` (arm64 image,
+`main@a276da6`). The superseded `main@bf24bf4` runs stay in `gazebo_current.jsonl.gz`; see `compare_gazebo_rerun.py`.
 """
 import gzip
 import json
@@ -115,11 +116,11 @@ def summary(df, title):
 
 
 if __name__ == "__main__":
-    src = Path(sys.argv[1]) if len(sys.argv) > 1 else HERE / "results_raw/gazebo_current.jsonl.gz"
+    srcs = sys.argv[1].split(",") if len(sys.argv) > 1 else [HERE / "results_raw/gazebo_tase.jsonl.gz"]
     rep = Path(sys.argv[2]) if len(sys.argv) > 2 else HERE / "report_r2"
     (rep / "fig").mkdir(parents=True, exist_ok=True)
     t = case_table()
-    gz = [json.loads(line) for line in gzip.open(src, "rt")]
+    gz = [json.loads(line) for src in srcs for line in gzip.open(src, "rt")]
     jobs, missing = [], []
     for g in gz:
         key = (g["batch"].split("@")[0], g["policy_label"], g["scenario"])
