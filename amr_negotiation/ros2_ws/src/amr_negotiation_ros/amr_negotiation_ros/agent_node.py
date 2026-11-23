@@ -81,6 +81,8 @@ class AgentNode(Node):
             policy["rulebook"] = g("rulebook")
         if g("policy_file"):
             policy.update(json.loads(Path(g("policy_file")).read_text()))
+        if policy.get("noise_key") == "episode":
+            policy.setdefault("noise_seed", int(g("seed")))  # same on every robot: both reproduce each other's noisy bid
         seed = int(g("seed")) * 1000 + sum(map(ord, self.rid))
         self.rng = np.random.default_rng(seed)
         self.agent = Agent(cfg, self.sc, policy, rng=np.random.default_rng(seed + 1))

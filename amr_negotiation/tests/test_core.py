@@ -454,3 +454,14 @@ def test_gazebo_world_has_obstacle_in_blocked_bay():
     except FileNotFoundError:
         pytest.skip("TurtleBot3 waffle model not installed")
     assert "obstacle_7.00" in sdf
+
+
+def test_noise_episode_key_ignores_snapshot_time():
+    from dataclasses import replace
+
+    from amr_negotiation.policies import noisy
+    a = snap("A", 1.0, 1)
+    late = replace(a, t=a.t + 0.37)
+    assert noisy(10.0, a, 0.5, 3, "episode") == noisy(10.0, late, 0.5, 3, "episode")
+    assert noisy(10.0, a, 0.5, 3, "time") != noisy(10.0, late, 0.5, 3, "time")
+    assert noisy(10.0, a, 0.5, 3, "episode") != noisy(10.0, a, 0.5, 4, "episode")
