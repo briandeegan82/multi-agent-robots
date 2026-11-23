@@ -32,7 +32,7 @@ Comments are cited by the IDs of the merged report: the consolidated issues #1�
   - The original five-point S7 grid is now Fig. S1.
 - **Systematic error (R1 M1.2).** S7m mis-specifies the planner's reverse-speed and turn-rate limits by ±10/20/30%, for robot B only or for both robots. This raised `cost_bid` excess delay by at most 0.2 s (Sec. V-A).
 - **Mapping σ to a measurable quantity (R1 M1.4, Q3).** In 2D, the SD of log(predicted/realized) is 0.075 in S1 and 0.068 in S2. Predicted delay also has a common bias of −15%, which cancels when the two outcomes are compared. The measured error therefore lies well inside the range where bidding wins (Sec. V-A and Table VI).
-  - **[OPEN]** The ROS agent does not log predicted bids, so we have no Gazebo estimate. Sec. VI states that hardware error is untested.
+  - **Gazebo estimate.** Every Gazebo decision already logs the planner's predicted plan. On the 72 nominal-communication, correct-map two-robot `cost_bid`/`clarke` runs, the SD of log(predicted/realized weighted delay) is 0.095 in Gazebo against 0.098 in 2D on the same runs (Sec. V-A; `studies/gazebo_bid_error.py`). Hardware error is still untested (Sec. VI).
 - **Wording.** The abstract, Table VI and the Conclusion now give the new thresholds: σ = 0.3 in a single bay and 0.35 in heterogeneous fleets. They also say the crossovers should not be carried over to layouts with several bays.
 
 ### #2 Novelty overstated; missing prior work (R2 M1–M3, M6, m5, m6, m9; R2 Q1–Q5). Accepted.
@@ -44,7 +44,7 @@ Comments are cited by the IDs of the merged report: the consolidated issues #1�
   - OMCoRP and CARMA are discussed rather than run as baselines. They address online multi-encounter prioritization, which our single-encounter VCG study does not attempt.
 - **Rulebooks (R2 M3, Q2).** `rules_default` and `rules_proximity` are now presented as rulebooks in the sense of Censi et al. (2019). Their tiers follow the etiquette sources, while the thresholds and the ordering of the proximity variant are our own design (Sec. IV-B).
 - **Decentralized AGV literature (R2 M6).** We added Čáp et al. (prioritized planning, now credited for `fixed_priority`), Draganjac et al., Digani et al. and Proia et al.
-- **Wenzel et al. (R2 m6). [OPEN]** Not added yet; it is one sentence and one bib entry.
+- **Wenzel et al. (R2 m6).** Added to Sec. II with the IV 2025 reference (doi:10.1109/IV64158.2025.11097760).
 
 ### #3 Statistics (R1 M6, R3 M5, R1 m3, m5). Accepted (Sec. IV-D, `studies/analyse_tase.py`, `report/tase_stats.md`).
 - **Encounter distribution.** It is uniform over each study's grid cells, with B's start delay drawn from U[0, 8] s (U[0, 10] s in 10 m corridors), and seeds as replicates (Sec. IV-C).
@@ -95,7 +95,7 @@ Comments are cited by the IDs of the merged report: the consolidated issues #1�
 - **Agreement.** It is 394/406 = 97.0% of negotiating main-batch runs (Wilson CI 94.9–98.3%). The abstract, Sec. I and the Conclusion now say "Gazebo with ground-truth localization".
 - **Delays.** The bias is −1.35 s, with limits of agreement −27.6 to +24.9 s. The T-junction gap persists on the final code, so Sec. V-D states that T-junction delays do not transfer.
 - **Old-commit runs (Q8).** None of the 12 disagreements came from the 122 old-commit runs, which agree 112/112 both before and after the rerun.
-- **Noise pairing. [OPEN]** The ROS agent still seeds bid noise on round(t, 1). This is listed as a limitation (Sec. VI), and the 5 noisy-bid disagreements are attributed to it.
+- **Noise pairing.** The ROS agent now supports the episode keying of the revision studies (`noise_key: episode`, noise fixed per seed and robot). Rerunning the 12 Gazebo noisy-bid cases with it gave the same first yielder as 2D in 12/12 runs, against 7/12 with the original round(t, 1) keying (Sec. IV-B). The 460-run table keeps the original runs, so the 5 noisy-bid disagreements remain and are attributed to the time keying (Sec. V-D).
 
 ### #9 Zero collisions at 99% loss attributed to snapshots (R1 M7, R2 m10; R1 Q5, Q7). Accepted.
 - **C6 reworded.** Collision-freedom is now attributed to the local Lidar stopping and timer layer (Secs. I, V-C and VII). The abstract says robots "often fall back to reactive yielding".
@@ -154,7 +154,7 @@ Comments are cited by the IDs of the merged report: the consolidated issues #1�
 ### #13 T-ASE format (R3 M6, m17). Partly done.
 - **Length.** The paper is now 14 pages, references included; the supplement is 10 pages. We moved notation, parameters, the S8c table, explore/hold, the classifier, the T-junction and Lidar-lag figures, the protocol diagram, the S2 and convoy figures, and the Gazebo per-condition table to the supplement. We also rewrote Secs. I, II, IV and V and removed the repeated numbers from Sec. VI-A.
 - **Abstract.** It is now 199 words.
-- **Figure text. [OPEN]** Figs. 2b, 3a and 4 still use text below 8 pt; they have to be regenerated from the original plotting sources. Fig. 8 also still carries an in-plot "Fig. 16" label, now explained in its caption.
+- **Figure text.** Figs. 2, 3, 4 and 8 were regenerated at their printed width with 8 pt minimum text (`paper_tase_rev/figures/make_figures_tase.py`). The stale in-plot "Fig. 16" label in Fig. 8 now reads "Supp. Fig. S5".
 
 ---
 
@@ -191,12 +191,12 @@ Comments are cited by the IDs of the merged report: the consolidated issues #1�
 - **m2. Accepted.** The NtP now says that rules match bidding once delay estimates are off by about 35% or more. It also says that all results come from simulation with exact localization.
 - **m3. Accepted.** The Table VI row now reads "σ ≥ 0.35", with "tied at 0.35–0.45, ahead from 0.5".
 - **m5 (Q6). Accepted.** Asymmetric-map runs with `commit` off show 109/420 disagreements and 7 deadlocks without map sharing, and none with `share_map`. Sec. V-C now concludes that `commit` is needed only without map sharing, which is consistent with Lesson 1.
-- **m9. [OPEN]** The hold-batch fractions in Sec. S-IV still need their n.
+- **m9.** Sec. S-IV now gives the denominators: 24 `hold_for_map` runs (6 seeds × 2 policies × R_det ∈ {3.5, 6.0} m); A sensed both bays in 24/24 runs and B in 20/24 (5/6 in each cell).
 - **m12. Accepted.** Sec. IV-D defines a collision as SAT overlap of the rectangular footprints, or a robot centre within 0.50 m of a blocked-bay obstacle. Wall contacts are logged separately.
 - **m13. Accepted.** D is numbered as Eq. (11), and every delay names its weighting.
 - **m14, m16. Accepted.** The roadmap is fixed, and Sec. IV-C says "six scenarios over five geometries".
 - **m18–m20. Accepted.** The wording was rewritten in Secs. V-A, V-B and V-D.
-- **m22. [OPEN]** Table III gives B's delay range per study, but not the corridor length.
+- **m22.** Table III's footnote now gives the corridor length per study: 10 m for the two-bay family (S4, asymmetric maps, blocked bays, explore & hold, convoy), 8 m otherwise, plus a 2 m stem at the T-junction.
 - **Practitioner value: message budget.** The median is 664–720 messages per episode across loss levels, mostly 5 Hz STATE beacons (Sec. V-C).
 - **Practitioner value: more than two robots.** This is limited to the two topologies tested (Sec. VI).
 - **Practitioner value: using the VCG surplus.** The surplus stays in the operator's ledger; redistribution is future work (Sec. VI).
