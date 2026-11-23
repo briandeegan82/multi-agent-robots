@@ -1,0 +1,37 @@
+\section{Related Work}\label{sec:rel}
+Head-on encounters in bay-equipped corridors touch four research threads; Table~\ref{tab:relwork} compares the closest corridor and give-way studies. The search covered IEEE Xplore, the ACM Digital Library, OpenAlex, and arXiv (2015--2026) with the keywords \emph{narrow corridor}, \emph{give way}, \emph{multi-robot deadlock}, \emph{right of way}, \emph{negotiation}, and \emph{mechanism design}, followed by backward and forward citation tracing.
+
+\emph{Deadlock in constrained navigation.} Reactive planners such as velocity obstacles \cite{fiorini1998motion}, ORCA \cite{vandenberg2011orca}, and decentralized CBFs \cite{wang2017safety} stall in symmetric bottlenecks: ORCA clusters lock up \cite{dergachev2021distributed} and CBF gradients cancel at undesired equilibria \cite{grover2023before}. Remedies perturb nonholonomic controls \cite{zheng2023deadlock}, switch stalled clusters to local MAPF \cite{dergachev2021distributed}, cast doorway encounters as social mini-games \cite{chandra2025deadlock,chandra2026social}, or let robots infer intent from motion \cite{alghamdi2025opinion}. All assume that robots can eventually pass; in a corridor narrower than two robots, one must select a bay behind it, reverse into it, and park clear of the lane.
+
+\emph{Traffic management, zone control, and MAPF.} Warehouse coordination is mostly centralized \cite{fragapane2021planning}: AGV zone control locks aisle blocks \cite{fanti2002event}, which our \texttt{reservation} baseline represents; MAPF solvers \cite{sharon2015cbs,okumura2022pibt} and narrow-corridor variants \cite{experience2024narrow,macga2025} treat bays as graph vertices; and Open-RMF \cite{openrmf} and VDA~5050 \cite{vda5050,vanduijkeren2023industrial} arbitrate schedules centrally, with precedence-preserving execution under delays \cite{cap2016provably}. Decentralized AGV coordination includes prioritized planning \cite{cap2015prioritized}, from which our \texttt{fixed\_priority} baseline derives, decentralized warehouse control \cite{draganjac2016decentralized}, ensemble coordination \cite{digani2015ensemble}, and supervisory path planning \cite{proia2026decentralized}. These methods share a pre-computed route graph and schedule access to it; we study encounter resolution without joint schedules and charge the slower reverse kinematics that symmetric edge weights ignore.
+
+\emph{Negotiation and mechanism design.} Explicit rules date back to Kato et al. \cite{kato1992coordinating} and social laws \cite{shoham1995social}. Rulebooks specify behavior as a lexicographic hierarchy \cite{censi2019rulebooks}, the formalism our two rulebook policies follow. Auctions allocate tasks \cite{gerkey2002sold}, and reservation-based intersection management \cite{dresner2008multiagent} is the precedent for corridor locking. VCG pivot payments \cite{vickrey1961counterspeculation,clarke1971multipart,groves1973incentives} make truthful reporting dominant but cannot also be budget balanced \cite{green1977characterization,myerson1983efficient}. Truthful mechanisms have been applied to MAPF as combinatorial auctions \cite{amir2015mapfauction,friedrich2024scalable}, to strategic social navigation \cite{chandra2023socialmapf}, to online prioritization of robots that may misreport urgency \cite{das2021omcorp}, and to path conflicts among non-cooperative robots \cite{gautier2022negotiated}; karma economies balance repeated right-of-way interactions without money \cite{censi2019karma,elokda2024karma,elokda2025carma}. These works assume route graphs and reliable messages and do not model the cost of reversing into a refuge; communication-failure studies \cite{gielis2022critical} motivate our tests at up to $99\%$ loss.
+
+\emph{Learned negotiators and benchmarks.} Deep RL has been applied to collision avoidance \cite{chen2017cadrl,fan2020distributed} and MAPF \cite{sartoretti2019primal}, and corridor give-way tasks include VMAS \texttt{give\_way} \cite{vmasgiveway,bettini2023heterogeneous} and hallucinated obstacles in narrow hallways \cite{park2023hallucination}. The closest benchmark is MARLIN \cite{marlin2024}, which uses language-based negotiation to guide MARL in single- and two-slot corridors, on hardware and in simulation; GameChat \cite{gamechat2025} and \cite{garg2024llm} use language models for doorway dialogue and deadlock recovery. BARN \cite{xiao2022barn}, SocNavBench \cite{biswas2022socnavbench}, and social-navigation guidelines \cite{francis2025principles} standardize evaluation in cluttered and social spaces. To our knowledge, no benchmark combines rule-based, lock-based, market-based, mechanism-design, and learned yield policies on one nonholonomic bay geometry under misreporting and lossy communication, with seed-paired 2D-to-Gazebo validation.
+
+\begin{table}[!t]
+\centering
+\caption{Corridor and give-way studies compared with this work. Refuges: discrete places where a robot can wait clear of the lane. Comm.: explicit inter-robot messages. Strat.: strategic (misreporting) agents.}
+\label{tab:relwork}
+\scriptsize
+\setlength{\tabcolsep}{2.5pt}
+\resizebox{\columnwidth}{!}{\begin{tabular}{@{}llccl@{}}
+\toprule
+Work & Setting & Refuges & Comm. & Policy families \\
+\midrule
+BARN \cite{xiao2022barn} & Single robot, clutter & -- & -- & Single-robot planners \\
+VMAS \texttt{give\_way} \cite{vmasgiveway,bettini2023heterogeneous} & 2-robot corridor & 1 & -- & MARL \\
+Park et al. \cite{park2023hallucination} & Narrow hallway & -- & -- & Learned hallucination \\
+MARLIN \cite{marlin2024} & 1-/2-slot corridors & 1--2 & LLM & MARL + LLM \\
+GameChat \cite{gamechat2025} & Doorway & -- & LLM & LLM dialogue \\
+Chandra et al. \cite{chandra2025deadlock,chandra2026social} & Doorway, hallway & -- & -- & CBF / game theory \\
+Alghamdi \& Park \cite{alghamdi2025opinion} & Narrow corridor & -- & -- & Opinion dynamics \\
+Moan et al. \cite{experience2024narrow} & Width-1 corridors & Graph & Central & MAPF \\
+Pertzovskiy et al. \cite{macga2025} & MAPF corridors & Graph & Central & MAPF \\
+VCG for MAPF \cite{amir2015mapfauction,friedrich2024scalable,gautier2022negotiated} & Route graph & Graph & Reliable & Auctions (Strat.) \\
+\textbf{This work} & Corridor + bays & 1--$n$ & Lossy & Rules, lock, bids, \\
+ & & & & VCG (Strat.), classifier \\
+\bottomrule
+\end{tabular}}
+\vspace{-0.3cm}
+\end{table}
