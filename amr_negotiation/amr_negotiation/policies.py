@@ -159,18 +159,23 @@ def yield_bid(Y: Snapshot, P: Snapshot, sc: Scenario, objective: str = "total_de
     return plan["weighted_delay"] if objective == "total_delay" else plan[objective]
 
 
-def noisy(bid: float, Y: Snapshot, sigma: float, seed: int) -> float:
-    """Log-normal estimate error on a bid, fixed per (seed, robot, time to 0.1 s) so both robots see the same value."""
+def noisy(bid: float, Y: Snapshot, sigma: float, seed: int, key: str = "time") -> float:
+    """Log-normal estimate error on a bid, identical on both robots.
+
+    key="time": fixed per (seed, robot, snapshot time to 0.1 s), the model of the original 2D studies; robots see the
+    same value only if their snapshots carry the same time stamp, which asynchronous ROS 2 clocks do not guarantee.
+    key="episode": fixed per (seed, robot), a persistent per-robot mis-estimate that both robots reproduce exactly."""
     if sigma <= 0 or not math.isfinite(bid):
         return bid
-    h = zlib.crc32(f"{seed}|{Y.id}|{round(Y.t, 1)}".encode())
+    h = zlib.crc32((f"{seed}|{Y.id}" if key == "episode" else f"{seed}|{Y.id}|{round(Y.t, 1)}").encode())
     return bid * math.exp(sigma * np.random.default_rng(h).standard_normal())
 
 
-def decide_cost_bid(snaps, sc, objective: str = "total_delay", bid_sigma: float = 0.0, noise_seed: int = 0) -> Decision:
+def decide_cost_bid(snaps, sc, objective: str = "total_delay", bid_sigma: float = 0.0, noise_seed: int = 0,
+                    noise_key: str = "time") -> Decision:
     a, b = _pair(snaps)
     ba, bb = yield_bid(a, b, sc, objective), yield_bid(b, a, sc, objective)
-    ba, bb = noisy(ba, a, bid_sigma, noise_seed), noisy(bb, b, bid_sigma, noise_seed)
+    ba, bb = noisy(ba, a, bid_sigma, noise_seed, noise_key), noisy(bb, b, bid_sigma, noise_seed, noise_key)
     detail = {"bids": {a.id: ba, b.id: bb}}
     if ba == float("inf") and bb == float("inf"):
         return Decision(None, None, None, "cost_bid:infeasible", detail)
@@ -288,7 +293,7 @@ def decide(policy: dict, snaps: list[Snapshot], sc: Scenario) -> Decision:
         return decide_rulebook(snaps, sc, load_rulebook(policy.get("rulebook")))
     if name == "cost_bid":
         return decide_cost_bid(snaps, sc, policy.get("objective", "total_delay"), policy.get("bid_sigma", 0.0),
-                               policy.get("noise_seed", 0))
+                               policy.get("noise_seed", 0), policy.get("noise_key", "time"))
     if name == "learned":
         return decide_learned(snaps, sc, policy.get("table"))
     if name == "clarke":
