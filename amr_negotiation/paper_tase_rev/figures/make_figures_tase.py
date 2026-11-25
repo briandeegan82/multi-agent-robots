@@ -177,7 +177,7 @@ def fig_scenarios():
     handles = [Line2D([], [], marker="o", ls="", mfc=C[k], mec="0.15", ms=8, label=lab) for k, lab in
                (("A", "A: eastbound leader"), ("B", "B: westbound peer"), ("C", "C: convoy follower"),
                 ("S", "S: branch stem robot"))] + [Line2D([], [], marker="x", ls="", color="0.2", mew=1.6, ms=7,
-                                                          label="refuge parking pose")]
+                                                          label="refuge parking position")]
     lax.legend(handles=handles, loc="center", ncol=2, frameon=True, columnspacing=0.8, handletextpad=0.3,
                borderpad=0.4, labelspacing=0.3)
     save(fig, "scenarios")
