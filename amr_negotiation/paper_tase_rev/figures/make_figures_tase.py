@@ -165,7 +165,7 @@ def fig_scenarios():
         ax = fig.add_subplot(rg[j])
         im = plt.imread(IMG / f"gazebo_panel_{p}.png")
         hh = im.shape[0] / im.shape[1]
-        ax.imshow(im, extent=(0, 1, 0, hh))
+        ax.imshow(im, extent=(0, 1, 0, hh), interpolation="none")  # embed native pixels, not 100 dpi resample
         for (xa, ya), (xt, yt), txt, col in labs:
             ax.annotate(txt, (xa, ya * hh), (xt, yt * hh), ha="center", va="center", color=col, weight="bold",
                         linespacing=1.0, bbox={"boxstyle": "round,pad=0.25", "fc": "w", "ec": col, "lw": 1},
@@ -177,7 +177,7 @@ def fig_scenarios():
     handles = [Line2D([], [], marker="o", ls="", mfc=C[k], mec="0.15", ms=8, label=lab) for k, lab in
                (("A", "A: eastbound leader"), ("B", "B: westbound peer"), ("C", "C: convoy follower"),
                 ("S", "S: branch stem robot"))] + [Line2D([], [], marker="x", ls="", color="0.2", mew=1.6, ms=7,
-                                                          label="refuge parking pose")]
+                                                          label="refuge parking position")]
     lax.legend(handles=handles, loc="center", ncol=2, frameon=True, columnspacing=0.8, handletextpad=0.3,
                borderpad=0.4, labelspacing=0.3)
     save(fig, "scenarios")
