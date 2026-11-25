@@ -165,7 +165,7 @@ def fig_scenarios():
         ax = fig.add_subplot(rg[j])
         im = plt.imread(IMG / f"gazebo_panel_{p}.png")
         hh = im.shape[0] / im.shape[1]
-        ax.imshow(im, extent=(0, 1, 0, hh))
+        ax.imshow(im, extent=(0, 1, 0, hh), interpolation="none")  # embed native pixels, not 100 dpi resample
         for (xa, ya), (xt, yt), txt, col in labs:
             ax.annotate(txt, (xa, ya * hh), (xt, yt * hh), ha="center", va="center", color=col, weight="bold",
                         linespacing=1.0, bbox={"boxstyle": "round,pad=0.25", "fc": "w", "ec": col, "lw": 1},
